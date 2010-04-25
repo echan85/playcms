@@ -1,54 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+#{extends 'main.html' /}
+#{site}
+#{menus}
+	#{set title:site.name/}
+	#{set 'moreStyles'}
+		#{stylesheet 'style.css'/}
+	#{/set}
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title>Architecture</title>
-	#{stylesheet 'style.css'/}
-	
-</head>
-
-<body>
   <div id="wrapper">
     <div id="header"> </div>
     <div id="left">
       <div id="logo">
-        <h1>Architecture Bureau</h1>
-        <p>It's all possible</p>
+        <h1>${site.name}</h1>
+        <p>${site.manifesto}</p>
       </div>
       <div id="nav">
         <ul>
-          <li class="important"><a href="http://www.freewebsitetemplates.com">Home</a></li>
-          <li><a href="http://www.freewebsitetemplates.com">Recent Projects</a></li>
-          <li><a href="http://www.freewebsitetemplates.com">Services</a></li>
-          <li><a href="http://www.freewebsitetemplates.com">Clients</a></li>
-          <li><a href="http://www.freewebsitetemplates.com">Solutions</a></li>
-          <li><a href="http://www.freewebsitetemplates.com">Contact us</a></li>
+		#{list items:menus, as:'m'}
+		  <li #{if current && current.code == m.code}class="important"#{/if}><a href="@{Application.list(m.code)}">${m.title}</a></li>
+		#{/list}
+          
         </ul>
       </div>
       <div id="news">
-        <h2>Latest News</h2>
-        <h3>02/03/07</h3>
-        <p>Even more websites all about website templates on <a href="http://www.justwebtemplates.com">Just Web Templates</a>.</p>
-        <div class="hr-dots"> </div>
-        <h3>01/03/07</h3>
-        <p>If you're looking for beautiful and professionally made templates you can find them at <a href="http://www.templatebeauty.com">Template Beauty</a>.</p>
-        <p class="more"><a href="http://www.freewebsitetemplates.com">more</a></p>
+      	#{listArticles menu:'news',as:'n'}
+	        <h2>${n.title}</h2>
+	        <h3>${n.dateCreated.format('yyyy-MM-dd')}</h3>
+	        ${n.content.nl2br()}
+	        #{ifnot n_isLast}<div class="hr-dots"></div>#{/ifnot}
+	        #{if n_isLast}
+        		<p class="more"><a href="@{Application.list('news')}">more</a></p>
+	        #{/if}
+      	#{/listArticles}
       </div>
       <div id="support">
-        <p>Call: +3265-9856-789</p>
+        <p>Call: ${site.supportTel}</p>
       </div>
     </div>
     <div id="right">
-      <h2>Welcome to Our Site!</h2>
-      <div id="welcome">
-        <img src="images/pic_1.jpg" width="171" height="137" alt="Pic 1" class="left" />
-        <p>Don't forget to check <a href="http://www.freewebsitetemplates.com">free website templates</a> every day, because we add  a new free website template almost daily.</p><p>You can remove any link to our websites from this template you're free to use the template without linking back to us.</p>
-        <p>This is just a place holder so you can see how the site would look like.</p>
-        <p class="more"><a href="http://www.freewebsitetemplates.com">more</a></p>
-      </div>
+    	#{article menu:'home'}
+	      <h2>${article.title}</h2>
+	      <div id="welcome">
+	        <img src="@{'/public/images/pic_1.jpg'}" width="171" height="137" alt="Pic 1" class="left" />
+	        ${article.content.nl2br()}
+	      </div>
+    	#{/article}
       <h3>Company Profile</h3>
       <div id="profile">
         <div id="corp">
@@ -71,11 +67,11 @@
     <div id="spacer"> </div>
     <div id="footer">
       <div id="copyright">
-        Copyright &copy; 2007 Company Name All right reserved.
+        ${site.copyright}
       </div>
 	  <div id="footerline"></div>
     </div>
 	
   </div>
-</body>
-</html>
+#{/menus}
+#{/site}

@@ -106,7 +106,7 @@ body {
   text-decoration: underline;
 }
 #nav .important {
-  border: none;
+  /*border: none;*/
   background: 188px 10px url(../images/arr_orange.gif) no-repeat;
 }
 #nav .important a {

@@ -1,0 +1,7 @@
+#{extends 'templates/obsess/obsess.html' /}
+#{site}
+#{menus}
+	#{set title:site.name/}
+    ${article.content.nl2br()}
+#{/menus}
+#{/site}

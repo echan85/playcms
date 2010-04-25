@@ -3,9 +3,13 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /files/images                                       Application.files(format:'xml')
+GET     /index.html                                       Application.index
+POST     /upload                                       Application.upload
 
 # Map static resources from the /app/public folder to the /public path
+GET     /public/list/{code}.html               Application.list
+GET     /public/page/{id}.html                 Application.view
 GET     /public/                                staticDir:public
 
 # Catch all

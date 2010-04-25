@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Connector resourceType="Files">
+ <Error number="0" />
+ <CurrentFolder path="/" url="/public/upload/" acl="255" />
+ <Files>
+ #{list items:files,as:'file'}
+	 <File name="${file.name}" date="${file.lastModified()}" size="${file.length()}" />
+ #{/list}
+ </Files>
+</Connector>

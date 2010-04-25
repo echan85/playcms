@@ -1,0 +1,72 @@
+#{extends 'main.html' /}
+#{site}
+#{menus}
+
+  <div id="wrapper">
+    <div id="header"> </div>
+    <div id="left">
+      <div id="logo">
+        <h1>${site.name}</h1>
+        <p>${site.manifesto}</p>
+      </div>
+      <div id="nav">
+        <ul>
+		#{list items:menus, as:'menu'}
+		  <li class="important"><a href="${menu.url}">${menu.title}</a></li>
+		#{/list}
+        </ul>
+      </div>
+      <div id="news">
+      	#{listArticles menu:'news',as:'n'}
+	        <h2>${n.title}</h2>
+	        <h3>${n.dateCreated.format('yyyy-MM-dd')}</h3>
+	        ${n.content.nl2br()}
+	        #{ifnot n_isLast}<div class="hr-dots"> </div>#{/ifnot}
+	        #{if n_isLast}
+        		<p class="more"><a href="@{Application.list('news')}">more</a></p>
+	        #{/if}
+      	#{/listArticles}
+      </div>
+      <div id="support">
+        <p>Call: ${site.supportTel}</p>
+      </div>
+    </div>
+    <div id="right">
+    	#{article menu:'home'}
+	      <h2>${article.title}</h2>
+	      <div id="welcome">
+	        <img src="images/pic_1.jpg" width="171" height="137" alt="Pic 1" class="left" />
+	        ${article.content}
+	      </div>
+    	#{/article}
+      <h3>Company Profile</h3>
+      <div id="profile">
+        <div id="corp">
+          <div id="corp-img">
+            Corporate Building
+          </div>
+          <p>If you're having problems editing the template please don't hesitate to ask for help on <a href="http://www.freewebsitetemplates.com/forum/">the forum</a>.</p>
+        </div>
+        <div id="indu">
+          <div id="indu-img">
+            Industrial
+          </div>
+          <p>This is a template designed by free website templates for you for free you can replace all the text by your own   			text.</p>
+        </div>
+        <div class="clear"> </div>
+        <p class="more"><a href="http://www.freewebsitetemplates.com">View Details</a></p>
+      </div>
+    </div>
+    <div class="clear"> </div>
+    <div id="spacer"> </div>
+    <div id="footer">
+      <div id="copyright">
+        Copyright &copy; 2007 Company Name All right reserved.
+      </div>
+	  <div id="footerline"></div>
+    </div>
+	
+  </div>
+
+#{/menus}
+#{/site}

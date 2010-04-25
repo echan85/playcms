@@ -1,0 +1,99 @@
+#{extends 'main.html' /}
+#{site}
+	#{set title:site.name/}
+	#{set 'moreStyles'}
+		<link href="/public/${template}/styles.css" rel="stylesheet" type="text/css" />
+	#{/set}
+
+<div class="size">
+  <div class="header">
+    <div class="header01">
+      <div class="logo"> *{<img src="/public/obsess/image/img_15.jpg" alt="" />}* </div>
+      <div class="hright">
+      *{!--
+        <div class="hr01">
+        #{menus position:'top'}
+	        #{list items:menus, as:'m'}
+			  <div #{if m_isfirst}class="hr0101"#{/if} class="hr0102"><a href="@{Application.list(m.code)}">${m.title}</a></div>
+			#{/list}
+        #{/menus}
+        </div>
+        }*
+        <div class="hr02">
+          
+        </div>
+      </div>
+    </div>
+    <div class="mnav"> <img class="mnimgl" src="/public/obsess/image/img_37.jpg" alt="" /> <img class="mnimgr" src="/public/obsess/image/img_50.jpg" alt="" />
+      <div class="mnm">
+        <ul>
+        #{menus position:'main'}
+        #{list items:menus, as:'m'}
+		  <li><a href="@{Application.list(m.code)}">${m.title}</a>
+		#{/list}
+		#{/menus}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="cmainimg"> <img alt="" src="/public/obsess/image/img_73.jpg" /> </div>
+    <div class="submenu" style="left: 0px; top: 0px"> <img class="snimgl" src="/public/obsess/image/img_96.jpg" alt="" /> <img class="snimgr" src="/public/obsess/image/img_107.jpg" alt="" />
+      <div class="subtext"> You are here:Home </div>
+      <div class="subimag" style="width: 41px; height: 51px">
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mcontent">
+      <div class="mcleft">
+        <div class="mcbox01">
+          <div class="mc01t2">代理品牌 </div>
+          <div class="mc01c">
+            <ul>
+              #{articles as:'a',menu:'coop',count:100}
+              	#{if a.titlepic}
+              	<li style='line-height:22px;' >
+              		<img src='${a.titlepic}'/><br/>
+	              	<a href="@{Application.view(a.id)}">${a.title}</a></li>
+              	#{/if}
+              	#{ifnot  a.titlepic}
+              		<li><a href="@{Application.view(a.id)}">${a.title}</a></li>
+	            #{/ifnot}
+              #{/articles}
+            </ul>
+          </div>
+          <div class="mc01b"> <img src="/public/obsess/image/img_272.jpg" alt="" /> </div>
+        </div>
+        <div class="mcbox01">
+          <div class="mc01t2">最近新闻</div>
+	          <div class="mc01cc">
+			  <ul>
+				#{articles as:'a',menu:'news',count:5}
+				    <li><a href="@{Application.view(a.id)}">&{a.title}</a></li>
+				#{/articles}
+				  </ul>
+	    		</div>
+          <div class="mc01b"> <img src="/public/obsess/image/img_272.jpg" alt="" /> </div>
+        </div>
+        <div class="mcbox01">
+          <div class="mc01t2">联系我们</div>
+          <div class="mc01cc">
+            #{includeArticle code:'contacts'/}
+          </div>
+          <div class="mc01b"> <img src="/public/obsess/image/img_272.jpg" alt="" /> </div>
+        </div>
+      </div>
+      <div class="mcright">
+	   #{doLayout /}        
+      </div>
+    </div>
+  </div>
+  <div class="footer"><img class="mnimgl" src="/public/obsess/image/img_275.jpg" alt="" /><img class="mnimgr" src="/public/obsess/image/img_291.jpg" alt="" /> <a href="http://www.88web.org/">HOME</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">ABOUT US</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">GALLERY</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">FAQ</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">SERVICES</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">CONTACT</a> <br/>
+    <font color="#333333">#{includeArticle code:'copyright'} ${article?.content?.nl2br()} 	#{/includeArticle}</div>
+</div>
+
+#{/site}

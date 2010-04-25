@@ -1,0 +1,56 @@
+<script type="text/javascript" language="javascript"  src="/public/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" language="javascript"  src="/public/ckfinder/ckfinder.js"></script>
+
+
+
+<div id="crudShow" class="${type.name}">
+	
+	<h2 id="crudShowTitle">&{'crud.show.title', type.modelName}</h2>
+	
+	<div class="objectForm">
+	#{form action:@save(object.id), enctype:'multipart/form-data'}
+		#{crud.form}			 
+			 #{crud.custom 'content'}
+			 	<textarea cols="80" id="editor1" name="object.content" rows="10">${object.content}</textarea>
+			 #{/crud.custom}
+		#{/crud.form}
+		<p class="crudButtons">
+			<input type="submit" name="_save" value="&{'crud.save', type.modelName}" />
+			<input type="submit" name="_saveAndContinue" value="&{'crud.saveAndContinue', type.modelName}" />
+		</p>
+	#{/form}
+	</div>
+	
+	#{form @delete(object.id)}
+		<p class="crudDelete">
+			<input type="submit" value="&{'crud.delete', type.modelName}" />
+		</p>
+	#{/form}
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+	// This call can be placed at any point after the
+	// <textarea>, or inside a <head><script> in a
+	// window.onload event handler.
+
+	// Replace the <textarea id="editor"> with an CKEditor
+	// instance, using default configurations.
+	// var editor = CKEDITOR.replace( 'editor1' );
+	//CKFinder.SetupCKEditor( editor, '/ckfinder/' );
+	
+	  CKEDITOR.replace( 'editor1',
+ {
+ 	filebrowserBrowseUrl : '/ckfinder/list',
+ 	filebrowserImageBrowseUrl : '/files/images',
+ 	filebrowserFlashBrowseUrl : '/ckfinder/flash',
+ 	filebrowserUploadUrl 	  : '/upload',
+ 	filebrowserImageUploadUrl : '/upload',
+ 	filebrowserFlashUploadUrl : '/upload'
+ } 
+ );
+	
+//]]>
+</script>
