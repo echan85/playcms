@@ -72,7 +72,7 @@ public class Application extends Controller {
 		List<Menu> menus = Menu.all().fetch();
 		for (Menu menu : menus) {
 			Menu current = menu;
-			if(menu.type <= 0 )
+			if(menu.type < 0 )
 				continue;
 			String template = "obsess";
 			Template tmp = TemplateLoader.load("templates/" + template + "/" + current.url);
