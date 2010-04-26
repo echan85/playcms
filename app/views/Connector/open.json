@@ -1,0 +1,56 @@
+{
+	 "cwd": {
+	     "name"  : "Home",
+	     "hash"  : "b4473c8c08d1d499ecd7112f3398f125",
+	     "rel"   : "Home",
+	     "date"  : "30 Jan 2010 14:25",
+	     "mime"  : "directory",
+	     "size"  : 0,
+	     "read"  : true,
+	     "write" : true,
+	     "rm"    : false
+	 },
+	"cdc":[
+	#{list items:files, as:'f'}
+		{
+          "name"  : "${f.name}",
+          "hash"  : "${f.hashCode()}",
+          "date"  : "Today 14:11",
+          "mime"  : "#{if f.isDirectory()}directory#{/if}#{ifnot f.isDirectory()}image/png#{/ifnot}",
+          "url"	  : "@{'/public/upload/'}/${f.name}",
+          "size"  : ${f.length()},
+          "read"  : true,
+          "write" : true,
+          "rm"    : true
+      }
+     #{ifnot f_isLast},#{/ifnot}
+     #{/list}	
+	],
+	"disabled"  : [],
+    "tree": {
+        "name"  : "Home",
+		"hash"  : "b4473c8c08d1d499ecd7112f3398f125",
+        "read"  : true,
+        "write" : true,
+        "dirs"  : []
+    },
+ 	"params" :{
+          "url"        : "/",
+          "dotFiles"   : true,
+          "uplMaxSize" : "15M",
+          "extract"    : [
+              "application/x-7z-compressed",
+              "application/x-tar",
+              "application/x-gzip",
+              "application/x-bzip2",
+              "application/zip" 
+          ],
+          "archives"   : [
+              "application/x-7z-compressed",
+              "application/x-tar",
+              "application/x-gzip",
+             "application/x-bzip2",
+             "application/zip" 
+         ]
+ 	}
+}

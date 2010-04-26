@@ -12,6 +12,8 @@ GET     /public/list/{code}.html               Application.list
 GET     /public/page/{id}.html                 Application.view
 GET     /public/                                staticDir:public
 
+*    /connector                                Connector.cmd(format:'josn')
+
 # Catch all
 *      /admin              module:crud
 *       /{controller}/{action}                  {controller}.{action}
