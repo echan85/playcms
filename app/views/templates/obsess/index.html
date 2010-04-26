@@ -1,21 +1,23 @@
 #{extends 'templates/obsess/obsess.html' /}
-	#{includeArticle code:'welcome' } #{/includeArticle}
-	
 
-<div class="mc0102" style='width:705px;margin-left:0px;height:auto;padding-bottom:10px;'> 
-<img alt="" src="/public/obsess/image/img_155.jpg" class="r0101"> 
-<img alt="" src="/public/obsess/image/img_157.jpg" class="r0102"> 
-<img alt="" src="/public/obsess/image/img_207.jpg" class="r0103"> 
-<img alt="" src="/public/obsess/image/img_209.jpg" class="r0104">
-    <div class="mcl">
+	#{includeArticle code:'welcome' } #{/includeArticle}
+
+</div>
+<div style='clear:both;border:0px solid red;position:relative;'>
+<div class="mc0102" style='width:705px;height:auto;padding-bottom:10px;position:absolute;left:220px;top:-260px;'>
+	<img alt="" src="/public/obsess/image/img_155.jpg" class="r0101"> 
+	<img alt="" src="/public/obsess/image/img_157.jpg" class="r0102"> 
+	<img alt="" src="/public/obsess/image/img_207.jpg" class="r0103"> 
+	<img alt="" src="/public/obsess/image/img_209.jpg" class="r0104">
+    <div class="mcl" >
       <div class="mcl01">推荐产品 </div>
-      <div class="mcl02">
-      	#{articles menu:'recommend', as:'a'}
+      <div class="mcl02" style='font-size:14px'>
+      	#{articles menu:'recommend', as:'a',count:20}
       		<div style='display:block;float:left;margin:4px;text-align:center;'>
-      			<img src='${a.titlepic}'/><br/>
-      			${a.title}
+      			<a href="@{Application.viewById(a.id)}"><img src='${a.titlepic}'/></a><br/>
+      			<a href="@{Application.viewById(a.id)}">${a.title}</a>
       		</div>
       	#{/articles}
 	  </div>
     </div>
-  </div>
+</div>

@@ -9,7 +9,8 @@ POST     /upload                                       Application.upload
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/list/{code}.html               Application.list
-GET     /public/page/{id}.html                 Application.view
+GET     /public/page/{<[0-9]+>id}.html                 Application.viewById
+GET     /public/page/{code}.html              Application.viewByCode
 GET     /public/                                staticDir:public
 
 *    /connector                                Connector.cmd(format:'josn')

@@ -8,7 +8,7 @@
 <div class="size">
   <div class="header">
     <div class="header01">
-      <div class="logo"> *{<img src="/public/obsess/image/img_15.jpg" alt="" />}* </div>
+      <div class="logo"> <img src="/public/obsess/image/logo.gif" alt="" /> </div>
       <div class="hright">
       *{!--
         <div class="hr01">
@@ -24,12 +24,21 @@
         </div>
       </div>
     </div>
+    
     <div class="mnav"> <img class="mnimgl" src="/public/obsess/image/img_37.jpg" alt="" /> <img class="mnimgr" src="/public/obsess/image/img_50.jpg" alt="" />
       <div class="mnm">
-        <ul>
+        <ul id="jsddm">
         #{menus position:'main'}
         #{list items:menus, as:'m'}
-		  <li><a href="@{Application.list(m.code)}">${m.title}</a>
+		  <li style="line-height:39px;" ><a #{if m.code == current?.code} style="color:#f92;"#{/if} href="#{url menu:m/}">${m.title}</a>
+		  	#{if m.children.size() > 0}
+		  	<ul>
+		  	#{list items:m.children, as:'c'}
+	            <li><a href="#{url menu:c/}">${c.title}</a></li>
+		  	#{/list}
+        	</ul>
+		  	#{/if}
+		  </li>
 		#{/list}
 		#{/menus}
         </ul>
@@ -39,13 +48,16 @@
   <div class="content">
     <div class="cmainimg"> <img alt="" src="/public/obsess/image/img_73.jpg" /> </div>
     <div class="submenu" style="left: 0px; top: 0px"> <img class="snimgl" src="/public/obsess/image/img_96.jpg" alt="" /> <img class="snimgr" src="/public/obsess/image/img_107.jpg" alt="" />
-      <div class="subtext"> You are here:Home </div>
-      <div class="subimag" style="width: 41px; height: 51px">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </ul>
+      <div class="subtext">当前位置：
+      #{list items:current.pathFromRoot(),as:'c'}
+      	<a href="#{url menu:c/}">${c.title}</a>#{ifnot c_isLast} &gt;&nbsp; #{/ifnot}
+      #{/list}
+      #{if article}
+      	&gt;&nbsp;<a href="@{Application.viewById(article.id)}">${article.title}</a> 
+      #{/if}
+      </div>
+      <div class="subimag" style="width: 100px; height: 51px">
+        ${new Date().format('yyyy-MM-dd HH:mm')}
       </div>
     </div>
     <div class="mcontent">
@@ -57,11 +69,11 @@
               #{articles as:'a',menu:'coop',count:100}
               	#{if a.titlepic}
               	<li style='line-height:22px;' >
-              		<img src='${a.titlepic}'/><br/>
-	              	<a href="@{Application.view(a.id)}">${a.title}</a></li>
+              		<a href="@{Application.viewById(a.id)}"><img src='${a.titlepic}'/></a><br/>
+	              	<a href="@{Application.viewById(a.id)}">${a.title}</a></li>
               	#{/if}
               	#{ifnot  a.titlepic}
-              		<li><a href="@{Application.view(a.id)}">${a.title}</a></li>
+              		<li><a href="@{Application.viewById(a.id)}">${a.title}</a></li>
 	            #{/ifnot}
               #{/articles}
             </ul>
@@ -73,7 +85,7 @@
 	          <div class="mc01cc">
 			  <ul>
 				#{articles as:'a',menu:'news',count:5}
-				    <li><a href="@{Application.view(a.id)}">&{a.title}</a></li>
+				    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a></li>
 				#{/articles}
 				  </ul>
 	    		</div>
@@ -92,8 +104,39 @@
       </div>
     </div>
   </div>
-  <div class="footer"><img class="mnimgl" src="/public/obsess/image/img_275.jpg" alt="" /><img class="mnimgr" src="/public/obsess/image/img_291.jpg" alt="" /> <a href="http://www.88web.org/">HOME</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">ABOUT US</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">GALLERY</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">FAQ</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">SERVICES</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.88web.org/">CONTACT</a> <br/>
+  <div class="footer"><img class="mnimgl" src="/public/obsess/image/img_275.jpg" alt="" /><img class="mnimgr" src="/public/obsess/image/img_291.jpg" alt="" /> 
+  <a href="#{aurl code:'componyintro'/}">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#{aurl code:'touchuu'/}">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#">政策法规</a>&nbsp;&nbsp;|&nbsp;&nbsp;<br/>
     <font color="#333333">#{includeArticle code:'copyright'} ${article?.content?.nl2br()} 	#{/includeArticle}</div>
 </div>
 
 #{/site}
+
+<script>
+	var timeout    = 500;
+	var closetimer = 0;
+	var ddmenuitem = 0;
+	
+	function jsddm_open()
+	{  jsddm_canceltimer();
+	   jsddm_close();
+	   ddmenuitem = $(this).find('ul').show();}
+	
+	function jsddm_close()
+	{  if(ddmenuitem) ddmenuitem.hide();
+	}
+	
+	function jsddm_timer()
+	{  closetimer = window.setTimeout(jsddm_close, timeout);}
+	
+	function jsddm_canceltimer()
+	{  if(closetimer)
+	   {  window.clearTimeout(closetimer);
+	      closetimer = null;}}
+	
+	$(document).ready(function()
+	{  $('#jsddm > li').bind('mouseover', jsddm_open)
+	   $('#jsddm > li').bind('mouseout',  jsddm_timer)});
+	
+	document.onclick = jsddm_close;
+</script>

@@ -4,8 +4,8 @@
 
 <div class="mc020302">
   <ul>
-#{articles as:'a',menu:'news',count:10}
-    <li><a href="@{Application.view(a.id)}">&{a.title}</a> &nbsp;&nbsp;${a.dateCreated?.format('yy-MM-dd')}</li>
+#{articles as:'a',menu:current.code,count:10}
+    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a> &nbsp;&nbsp;${a.dateCreated?.format('yy-MM-dd')}</li>
 #{/articles}
   </ul>
 </div>

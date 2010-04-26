@@ -20,19 +20,19 @@ img
 .header
 {
 	height: 138px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	background-color: White;
 	background: url(image/head_bg.jpg);
 }
 .header01
 {
 	height: 91px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 .mnav
 {
 	height: 39px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	background-image: url(image/img_38.jpg);
 	background-repeat: repeat-x;
 	margin-left: 10px;
@@ -51,7 +51,7 @@ img
 	float: left;
 	padding: 0 0px 0 0px;
 	min-width: 75px;
-	line-height: 44px;
+	line-height: 39px;
 	text-align: center;
 	color: #a7a8a8;
 	font-family: Arial;
@@ -160,12 +160,12 @@ img
 }
 .subtext
 {
-	color: #aba6a6;
-	font-size: 11px;
+	color: #f92;
+	font-size: 12px;
 	margin-left: 11px;
 	margin-top: 6px;
 	float: left;
-	width: 100px;
+	width: 400px;
 }
 .subimag
 {
@@ -487,3 +487,40 @@ img
 	color: white;
 	text-decoration: underline;
 }
+
+
+#jsddm
+{	margin: 0;
+	padding: 0}
+	
+#jsddm li
+{	line-height:20px; }
+
+#jsddm li a
+{	display: block;
+	white-space: nowrap}
+
+#jsddm li a:hover
+{	}
+		
+#jsddm li ul
+{	margin: 0;
+	padding: 0;
+	position: absolute;
+	display: none;
+	z-index: 9999;
+	width: 150px;
+	text-align: left;
+	border-top: 1px solid white}
+
+#jsddm li ul li
+{	float: none;
+	display: inline}
+
+#jsddm li ul li a
+{	width: auto;
+	background: url(image/img_38.jpg)}
+
+#jsddm li ul li a:hover
+{	background: url(image/3_03.jpg)}
+
