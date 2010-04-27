@@ -59,8 +59,11 @@ public class Application extends Controller {
 		List files = Arrays.asList(listfiles);
 		render(files);
 	}
-
-	public static void cachepage() {
+	public static void generate() {
+		cachepage();
+		cachemenu();
+	}
+	private static void cachepage() {
 		List<Article> articles = Article.all().fetch();
 		for (Article article : articles) {
 			String template = "obsess";
@@ -84,7 +87,7 @@ public class Application extends Controller {
 		}
 	}
 
-	public static void cachemenu() {
+	private static void cachemenu() {
 		List<Menu> menus = Menu.all().fetch();
 		for (Menu menu : menus) {
 			Menu current = menu;

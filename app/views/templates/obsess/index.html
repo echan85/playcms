@@ -11,13 +11,17 @@
 	<img alt="" src="/public/obsess/image/img_209.jpg" class="r0104">
     <div class="mcl" >
       <div class="mcl01">推荐产品 </div>
-      <div class="mcl02" style='font-size:14px'>
+      <div class="mcl02" style='padding-top:0px;margin-top:5px;font-size:14px;overflow:auto;margin-right:10px;background:#fefefe;'>
+      	<table><tr>
       	#{articles menu:'recommend', as:'a',count:20}
-      		<div style='display:block;float:left;margin:4px;text-align:center;'>
-      			<a href="@{Application.viewById(a.id)}"><img src='${a.titlepic}'/></a><br/>
-      			<a href="@{Application.viewById(a.id)}">${a.title}</a>
+      		<td>
+      		<div style='display:block;float:left;margin:4px;text-align:center;width:130px;'>
+      			<a href="@{Application.viewById(a.id)}"><img style='max-height:140px;max-width:120px;' src='${a.titlepic}'/></a><br/>
+      			<a  href="@{Application.viewById(a.id)}">${a.title}</a>
       		</div>
+      		</td>
       	#{/articles}
+      	</tr></table>
 	  </div>
     </div>
 </div>

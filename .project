@@ -19,22 +19,22 @@
 		<link>
 			<name>crud</name>
 			<type>2</type>
-			<location>d:/opt/play-1.1-unstable-r876/modules/crud/app</location>
+			<location>F:/opt/play-1.1-unstable-r884/modules/crud/app</location>
 		</link>
 		<link>
 			<name>play-1.1-unstable-r884</name>
 			<type>2</type>
-			<location>d:/opt/play-1.1-unstable-r876</location>
+			<location>F:/opt/play-1.1-unstable-r884</location>
 		</link>
 		<link>
 			<name>conf/crud</name>
 			<type>2</type>
-			<location>d:/opt/play-1.1-unstable-r876/modules/crud/conf</location>
+			<location>F:/opt/play-1.1-unstable-r884/modules/crud/conf</location>
 		</link>
 		<link>
 			<name>public/crud</name>
 			<type>2</type>
-			<location>d:/opt/play-1.1-unstable-r876/modules/crud/public</location>
+			<location>F:/opt/play-1.1-unstable-r884/modules/crud/public</location>
 		</link>
 	</linkedResources>
 </projectDescription>
