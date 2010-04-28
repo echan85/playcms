@@ -41,4 +41,7 @@ public class Menu extends Model {
 		Collections.reverse(path);
 		return path;
 	}
+	public static List<Menu> root(Site site){
+		return Menu.find("site = ? and parent is null" , site).fetch();
+	}
 }
