@@ -14,16 +14,21 @@
 					#{/article}
               </div>
                 
-                <div class="templatemo_left_section_box">
-				#{articles menu:'news',count:1,as:'article'}				
-                	<div class="templatemo_left_section_box_top">${article.title}</div>
-                  <div class="templatemo_left_section_box_body">
-                   	${article.content.raw()}
+				
+                <div class="templatemo_left_section_box" style="margin-top: 15px;">
+				#{articles menu:'news',count:10,as:'article'}				
+                	<div class="templatemo_left_section_box_top">最近新闻</div>
+                  <div class="templatemo_left_section_box_body" style="padding-top:5px;">
+                   	<ul>
+				#{articles as:'a',menu:'news',count:5}
+				    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a></li>
+				#{/articles}
+				  </ul>
 					</div>
 				#{/articles}	  
                 </div>
                 
-				 <div class="templatemo_left_section_box">
+				 <div class="templatemo_left_section_box" style="margin-top: 15px;">
 					<div class="templatemo_left_section_box_top" style="width:720px;">产品推荐</div>
                     <div class="templatemo_left_section_box_body" style="width:720px;">
       	#{articles menu:'recommend', as:'a',count:20}      		
