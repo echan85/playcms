@@ -19,7 +19,7 @@ img
 /* header */
 .header
 {
-	height: 138px;
+	height: 118px;
 	/*overflow: hidden;*/
 	background-color: White;
 	background: url(image/head_bg.jpg);
@@ -32,9 +32,9 @@ img
 .mnav
 {
 	height: 39px;
-	/*overflow: hidden;*/
+	/*overflow: hidden;
 	background-image: url(image/img_38.jpg);
-	background-repeat: repeat-x;
+	background-repeat: repeat-x;*/
 	margin-left: 10px;
 	width: 530px;
 	position: relative;
@@ -55,7 +55,7 @@ img
 	text-align: center;
 	color: #a7a8a8;
 	font-family: Arial;
-	background-image: url(image/3_03.jpg);
+	/*background-image: url(image/3_03.jpg);*/
 	background-repeat: no-repeat;
 	background-position: right center;
 	list-style: none;
@@ -71,8 +71,9 @@ img
 	height: 100%;
 }
 .mnm a:hover, .mnm a:active
-{
-	background: url(image/3_021.jpg) repeat-x;
+{	
+	color:#FF9922;
+	/*background: url(image/3_021.jpg) repeat-x;*/
 }
 .mnimgl
 {
@@ -140,7 +141,7 @@ img
 .content
 {
 	background-color: White;
-	overflow: hidden;
+/*	overflow: hidden;*/
 }
 .cmainimg
 {
@@ -236,8 +237,8 @@ img
 }
 .mc01c
 {
-	border-left: 1px solid #d1d1d1;
-	border-right: 1px solid #d1d1d1;
+	border-left: 1px solid #388de8;
+	border-right: 1px solid #388de8;
 	width: 205px;
 	overflow: hidden;
 	background-color: #f0f0f0;
@@ -511,7 +512,11 @@ img
 	z-index: 9999;
 	width: 150px;
 	text-align: left;
-	border-top: 1px solid white}
+	border-top: 0px solid #FF9922;
+	border-left: 1px solid #FF9922;
+	border-right: 1px solid #FF9922;
+	border-bottom: 1px solid #FF9922;
+}
 
 #jsddm li ul li
 {	float: none;
@@ -519,8 +524,10 @@ img
 
 #jsddm li ul li a
 {	width: auto;
-	background: url(image/img_38.jpg)}
+	background:white;
+	text-align: left;
+	padding-left: 10px;
+	/*background: url(image/img_38.jpg)*/
+}
 
-#jsddm li ul li a:hover
-{	background: url(image/3_03.jpg)}
 
