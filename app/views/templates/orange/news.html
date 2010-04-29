@@ -1,0 +1,7 @@
+#{extends 'templates/orange/orange.html' /}
+
+	#{set 'title'} ${article.title}#{/set}
+	<h2>${article.title}</h2>
+	发布时间：${article.dateCreated?.format('yyyy-MM-dd HH:mm')}
+	<hr style='clear:both;color:gray;height:1px;'/>
+    ${article.content.nl2br()}

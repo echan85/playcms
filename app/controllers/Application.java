@@ -22,13 +22,16 @@ import play.templates.TemplateLoader;
 
 public class Application extends Controller {
 
+	private static final String TEMPLATE = "orange";
+//	private static final String TEMPLATE = "obsess";
+
 	public static void index() {
 		render();
 	}
 
 	public static void viewById(long id) {
 		Article article = Article.findById(id);
-		String template = "obsess";
+		String template = TEMPLATE;
 		Menu current = article.menu;
 		String tpl = null;
 		if (StringUtils.isNotEmpty(article.menu.viewTemplate))
@@ -40,7 +43,7 @@ public class Application extends Controller {
 
 	public static void list(String code) {
 		Menu current = Menu.find("byCode", code).first();
-		String template = "obsess";
+		String template = TEMPLATE;
 		render("templates/" + template + "/" + current.url, current, template);
 	}
 
@@ -66,7 +69,7 @@ public class Application extends Controller {
 	private static void cachepage() {
 		List<Article> articles = Article.all().fetch();
 		for (Article article : articles) {
-			String template = "obsess";
+			String template = TEMPLATE;
 			System.out.println(article);
 			Menu current = article.menu;
 			String tpl = null;
@@ -93,7 +96,7 @@ public class Application extends Controller {
 			Menu current = menu;
 			if (menu.type < 0)
 				continue;
-			String template = "obsess";
+			String template = TEMPLATE;
 			Template tmp = TemplateLoader.load("templates/" + template + "/" + current.url);
 			HashMap map = new HashMap();
 			map.put("current", current);

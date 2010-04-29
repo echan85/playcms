@@ -8,7 +8,7 @@
 <div class="size">
   <div class="header">
     <div class="header01">
-      <div class="logo"> <img src="/public/obsess/image/logo.gif" alt="" /> </div>
+      *{<div class="logo"> <img src="/public/obsess/image/logo.gif" alt="" /> </div>}*
       <div class="hright">
       *{!--
         <div class="hr01">
@@ -25,12 +25,12 @@
       </div>
     </div>
     
-    <div class="mnav"> <img class="mnimgl" src="/public/obsess/image/img_37.jpg" alt="" /> <img class="mnimgr" src="/public/obsess/image/img_50.jpg" alt="" />
+    <div class="mnav"> 
       <div class="mnm">
         <ul id="jsddm">
         #{menus position:'main'}
         #{list items:menus, as:'m'}
-		  <li style="line-height:39px;" ><a #{if m.code == current?.code} style="color:#f92;"#{/if} href="#{url menu:m/}">${m.title}</a>
+		  <li style="line-height:26px;" ><a #{if m.code == current?.code} style="color:#f92;"#{/if} href="#{url menu:m/}">${m.title}</a>
 		  	#{if m.children.size() > 0}
 		  	<ul>
 		  	#{list items:m.children, as:'c'}

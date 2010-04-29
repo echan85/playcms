@@ -1,0 +1,37 @@
+    <div id="templatemo_background_section_mid">
+    	<div class="templatemo_container">
+        <div id="templatemo_content_area">
+		            
+            <div id="templatemo_middle_section" style='margin:0px;'>
+            
+            	<div class="templatemo_middle_section_box">
+                	<h1>代理品牌</h1>
+					<ul>
+              #{articles as:'a',menu:'coop',count:100}
+              	#{if a.titlepic}
+              	<li style='line-height:22px;' >
+              		<a href="@{Application.viewById(a.id)}"><img src='${a.titlepic}' style="max-width:140px;max-height:30px;"/></a><br/>
+	              	<a href="@{Application.viewById(a.id)}">${a.title}</a></li>
+              	#{/if}
+              	#{ifnot  a.titlepic}
+              		<li><a href="@{Application.viewById(a.id)}">${a.title}</a></li>
+	            #{/ifnot}
+              #{/articles}
+					</ul>
+                </div>
+                
+                <div class="templatemo_middle_section_box">
+               		<h1>最近新闻</h1>
+                	<ul>
+				#{articles as:'a',menu:'news',count:5}
+				    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a></li>
+				#{/articles}
+				  </ul>
+                </div>
+                
+                <div class="templatemo_middle_section_box">
+                <h1>联系我们</h1>
+                #{includeArticle code:'contacts'/}
+                </div>
+            
+            </div><!-- End Of Middle Section -->

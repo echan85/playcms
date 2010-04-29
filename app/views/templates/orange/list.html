@@ -1,0 +1,17 @@
+#{extends 'templates/orange/orange.html' /}
+
+
+
+<div id="templatemo_left_section" style="margin:0 0 0 15px">
+            
+           	  <div class="templatemo_left_section_box">
+           	  
+  <ul>
+#{articles as:'a',menu:current.code,count:30}
+    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a> &nbsp;&nbsp;${a.dateCreated?.format('yyyy-MM-dd')}</li>
+#{/articles}
+  </ul>
+
+</div>
+</div>           	  
+

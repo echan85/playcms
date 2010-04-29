@@ -1,0 +1,47 @@
+    <div id="templatemo_background_section_top">
+    
+    	<div class="templatemo_container" >
+        	<div id="templatemo_logo_section" style='background:url(/public/obsess/image/head_bg.jpg) no-repeat;margin:0px 0 0px;width:950px;height:85px;'>
+            	
+            </div>
+         
+            
+            <div id="templatemo_menu_section" style='margin:6px 0;'>
+        #{menus position:'main'}
+			<ul id='jsddm' style='width:740px;'>
+			#{list items:menus, as:'m'}
+			  <li><a #{if m.code == current?.code} class="current"#{/if} href="#{url menu:m/}">${m.title}</a>
+					#{if m.children.size() > 0}
+					<ul>
+					#{list items:m.children, as:'c'}
+						<li><a href="#{url menu:c/}">${c.title}</a></li>
+					#{/list}
+					</ul>
+					#{/if}
+			  </li>
+			#{/list}
+		  </ul>
+		#{/menus} 
+		<p style='line-height:26px;'>
+		        <script>
+				
+var today=new Date()
+var weekday=new Array(7)
+weekday[0]="星期日"
+weekday[1]="星期一"
+weekday[2]="星期二"
+weekday[3]="星期三"
+weekday[4]="星期四"
+weekday[5]="星期五"
+weekday[6]="星期六"
+var y=today.getYear();
+var m=today.getMonth();
+var d=today.getDate();
+var day = today.getDay()
+document.write("今天是：" + (1900+y) +"年" + m+"月" + d +"日 " + weekday[day])
+
+</script>
+</p>
+			</div>
+        </div>
+    </div><!-- End Of Top Background -->

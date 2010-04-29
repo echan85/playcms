@@ -1,0 +1,83 @@
+#{extends 'main.html' /}
+#{site}
+	#{set title:site.name/}
+	#{set 'moreStyles'}
+		<link href="/public/${template}/slimbox/slimbox2.css" rel="stylesheet" type="text/css" />
+		<link href="/public/${template}/templatemo_style.css" rel="stylesheet" type="text/css" />
+	#{/set}
+	#{set 'moreScripts'}
+		<script type="text/javascript" src="/public/${template}/slimbox/slimbox2.js"></script>
+	#{/set}
+	
+<script language="javascript" type="text/javascript">
+function clearText(field)
+{
+    if (field.defaultValue == field.value) field.value = '';
+    else if (field.value == '') field.value = field.defaultValue;
+
+}
+</script>
+<!--[if lt IE 6]>
+<style type="text/css">
+	img { behavior: url(iepngfix.htc); }
+</style>
+<![endif]-->
+
+	
+		#{include 'templates/orange/_header.html'/}
+		#{include 'templates/orange/_left.html'/}
+
+    #{get 'mainContent' /}
+	#{doLayout /}
+	
+			<div class="cleaner_with_height">&nbsp;</div>
+		</div><!-- End Of content area -->
+        
+		<div id="templatemo_footer">
+		
+        	<a href="#{aurl code:'componyintro'/}">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#{aurl code:'touchuu'/}">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#">政策法规</a>&nbsp;&nbsp;|&nbsp;&nbsp;<br/>
+    <font color="#333333">#{includeArticle code:'copyright'} ${article?.content?.raw()} 	#{/includeArticle}
+	<!-- GoStats JavaScript Based Code -->
+<script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+<script type="text/javascript">_gos='c5.gostats.cn';_goa=1029084;
+_got=4;_goi=1;_goz=0;_god='hits';_gol='';_GoStatsRun();</script>
+<noscript><a target="_blank" title="" 
+href="http://gostats.cn"><img alt="" src="http://c5.gostats.cn/bin/count/a_1029084/t_4/i_1/z_0/show_hits/counter.png" 
+style="border-width:0" /></a></noscript>
+<!-- End GoStats JavaScript Based Code -->
+	
+        </div>
+		
+        </div><!-- End Of container -->
+    </div><!-- End Of Middle Background -->
+#{/site}
+
+<script>
+	var timeout    = 500;
+	var closetimer = 0;
+	var ddmenuitem = 0;
+	
+	function jsddm_open()
+	{  jsddm_canceltimer();
+	   jsddm_close();
+	   ddmenuitem = $(this).find('ul').show();}
+	
+	function jsddm_close()
+	{  if(ddmenuitem) ddmenuitem.hide();
+	}
+	
+	function jsddm_timer()
+	{  closetimer = window.setTimeout(jsddm_close, timeout);}
+	
+	function jsddm_canceltimer()
+	{  if(closetimer)
+	   {  window.clearTimeout(closetimer);
+	      closetimer = null;}}
+	
+	$(document).ready(function()
+	{  $('#jsddm > li').bind('mouseover', jsddm_open)
+	   $('#jsddm > li').bind('mouseout',  jsddm_timer)});
+	
+	document.onclick = jsddm_close;
+</script>

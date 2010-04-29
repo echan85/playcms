@@ -1,4 +1,4 @@
 %{
-def article = models.Article.find("menu.code = ? order by dateCreated desc", _menu).first()
+def article = models.Article.find("code = ? order by dateCreated desc", _code).first()
 }%
 #{doBody vars:['article': article] /}

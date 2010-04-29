@@ -1,0 +1,75 @@
+#{extends 'templates/orange/orange.html' /}
+
+#{set 'mainContent' }
+
+			<div id="templatemo_left_section" style="margin:0 0 0 15px">
+            
+           	  <div class="templatemo_left_section_box">
+					#{article code:'welcome' }
+               	  <div class="templatemo_left_section_box_top">${article.title}</div>
+                    <div class="templatemo_left_section_box_body">
+						 ${article.content.raw()}
+
+                    </div>
+					#{/article}
+              </div>
+                
+                <div class="templatemo_left_section_box">
+				#{articles menu:'news',count:1,as:'article'}				
+                	<div class="templatemo_left_section_box_top">${article.title}</div>
+                  <div class="templatemo_left_section_box_body">
+                   	${article.content.raw()}
+					</div>
+				#{/articles}	  
+                </div>
+                
+				 <div class="templatemo_left_section_box">
+					<div class="templatemo_left_section_box_top" style="width:720px;">产品推荐</div>
+                    <div class="templatemo_left_section_box_body" style="width:720px;">
+      	#{articles menu:'recommend', as:'a',count:20}      		
+      			<div style='display:block;float:left;margin:4px;text-align:center;width:130px;border:1px solid gray; height:150px;'>
+      			<a href="@{Application.viewById(a.id)}"><img style='float:none;margin-bottom:0px;border:0px;max-height:100px;max-width:100px;' src='${a.titlepic}'/></a><br/>
+      			<a href="@{Application.viewById(a.id)}">${a.title}</a>
+      		</div>
+      	#{/articles}
+                       
+                   </div>
+              </div>
+				
+            </div><!-- End Of left Section -->
+            
+  
+           
+            
+             <div id="templatemo_right_section">
+            
+            	<div class="templatemo_right_section_box">
+                	<h1>百特报道</h1>
+                     <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+					 codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" 
+					 width="300" height="280" id="vsplayer" align="middle">
+					 <param name="allowScriptAccess" value="sameDomain" />
+					 <param name="allowFullScreen" value="true" />
+					 <param name="movie"
+					 value="http://vhead.blog.sina.com.cn/player/outer_player.swf?auto=1&vid=27877203&uid=&chn1=1&title=%u89C6%u9891%uFF1A%u5317%u4EAC%u964D%u96EA%u964D%u6E29%u7A81%u7834%u5386%u53F2%u6781%u503C" />
+					 <param name="quality" value="high" />
+					 <param name="bgcolor" value="#ffffff" />
+					 <embed embed allowFullScreen="true" src="http://vhead.blog.sina.com.cn/player/outer_player.swf?auto=1&vid=27877203&uid=&chn1=1&title=%u89C6%u9891%uFF1A%u5317%u4EAC%u964D%u96EA%u964D%u6E29%u7A81%u7834%u5386%u53F2%u6781%u503C" quality="high" 
+					 bgcolor="#ffffff" 
+					 width="300" height="280" name="vsplayer" align="middle" 
+					 allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>
+                </div>
+                
+			<div class="templatemo_right_section_box">
+               		<h1>集团链接</h1>
+                	<ul>
+				#{articles as:'a',menu:'news',count:5}
+				    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a></li>
+				#{/articles}
+				  </ul>
+            </div>
+                
+            </div><!-- End Of right Section -->
+            
+
+#{/set}
