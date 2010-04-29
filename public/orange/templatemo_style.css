@@ -471,7 +471,7 @@ span.post a:hover{
 	position: absolute;
 	display: none;
 	z-index: 9999;
-	width: 150px;
+	width: 110px;
 	text-align: left;
 	border-top: 0px solid #FF9922;
 	border-left: 1px solid #FF9922;
@@ -492,6 +492,7 @@ span.post a:hover{
 {	width: auto;	
 	text-align: left;
 	padding-left: 10px;
+	width: 100px;
 	/*background: url(image/img_38.jpg)*/
 }
 
