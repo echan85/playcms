@@ -31,7 +31,7 @@
 				 <div class="templatemo_left_section_box" style="margin-top: 15px;">
 					<div class="templatemo_left_section_box_top" style="width:720px;">产品</div>
                     <div class="templatemo_left_section_box_body" style="width:720px;height:160px;">
-                    <marquee onMouseOut="this.start()" onMouseOver="this.stop()">
+                    <marquee onMouseOut="this.start()" onMouseOver="this.stop()" height="160px">
       	#{articles menu:'recommend', as:'a',count:20}      		
       			<div style='display:block;float:left;margin:4px;text-align:center; border:1px solid gray; width:130px;  height:150px;'>
       			<a href="@{Application.viewById(a.id)}"><img style="float:none;margin-bottom:0px;border:0px;max-height:100px;max-width:100px;width:expression(this.width > 100? '100px': this.width );height:expression(this.height > 100? '100px': this.height);" src='${a.titlepic}'/></a><br/>
