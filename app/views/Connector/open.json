@@ -32,7 +32,20 @@
 		"hash"  : "b4473c8c08d1d499ecd7112f3398f125",
         "read"  : true,
         "write" : true,
-        "dirs"  : []
+        "dirs"  : [
+	        #{list items:dirs, as:'f'}
+	        #{if f.isDirectory()}
+	        {
+	        	"name"  : "${f.name}",
+				"hash"  : "${f.hashCode()}",
+	        	"read"  : true,
+	       		"write" : true,
+	       		dirs : []
+	        }
+	        #{/if}
+	        #{ifnot f_isLast},#{/ifnot}
+	     	#{/list}	
+        ]
     },
  	"params" :{
           "url"        : "/",

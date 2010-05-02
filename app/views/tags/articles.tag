@@ -1,7 +1,7 @@
 %{
 def from = 0
 def count = 5
-def query = " select distinct a from Article a join a.copies as m where m.code = ? order by a.dateCreated desc"
+def query = " select distinct a from Article a join a.copies as m where m.code = ? order by a.viewOrder asc"
 
 if(_from) from = _from
 if(_count) count = _count 

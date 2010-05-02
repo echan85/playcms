@@ -7,7 +7,8 @@
               #{articles as:'a',menu:'coop',count:100}
               	#{if a.titlepic}
               	<li style='line-height:22px;' >
-              		<a href="@{Application.viewById(a.id)}"><img src='${a.titlepic}' style="max-width:140px;max-height:30px;"/></a><br/>
+              		<a href="@{Application.viewById(a.id)}">
+              		<img src='${a.titlepic}' style="max-width:140px;max-height:30px;width:expression(this.width > 140? '140px': this.width )"/></a><br/>
 	              	<a href="@{Application.viewById(a.id)}">${a.title}</a></li>
               	#{/if}
               	#{ifnot  a.titlepic}

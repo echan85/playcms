@@ -27,6 +27,7 @@ public class Article extends Model {
 	public List<Menu> copies;
 	public String code;
 	public String titlepic;
+	public int viewOrder;
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	public Set<Tag> tags;
 
@@ -45,6 +46,7 @@ public class Article extends Model {
 		System.out.println("onUpdate");
 		if (dateCreated == null)
 			dateCreated = new Date();
+		System.out.println(title);
 		dateUpdated = new Date();
 	}
 	@PrePersist

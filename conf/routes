@@ -15,6 +15,9 @@ GET     /public/                                staticDir:public
 
 *    /connector                                Connector.cmd(format:'josn')
 
+*	/a	Admin.index
+*	/tree	Admin.tree(format:'json')
+
 # Catch all
 *      /admin              module:crud
 *       /{controller}/{action}                  {controller}.{action}
