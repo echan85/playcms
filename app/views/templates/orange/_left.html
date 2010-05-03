@@ -8,7 +8,7 @@
               	#{if a.titlepic}
               	<li style='line-height:22px;' >
               		<a href="@{Application.viewById(a.id)}">
-              		<img src='${a.titlepic}' style="border:0px;max-width:140px;max-height:30px;width:expression(this.width > 140? '140px': this.width )"/></a><br/>
+              		<img src='${a.titlepic}' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
 	              	<a href="@{Application.viewById(a.id)}">${a.title}</a></li>
               	#{/if}
               	#{ifnot  a.titlepic}

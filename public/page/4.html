@@ -7,12 +7,25 @@
         
 		<link href="/public/orange/slimbox/slimbox2.css" rel="stylesheet" type="text/css" />
 		<link href="/public/orange/templatemo_style.css" rel="stylesheet" type="text/css" />
-	        	<script src="/public/javascripts/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<link href="/public/stylesheets/jquerycssmenu.css" rel="stylesheet" type="text/css" />
+	        <script src="/public/javascripts/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
         
 		<script type="text/javascript" src="/public/orange/slimbox/slimbox2.js"></script>
+		<script type="text/javascript" src="/public/javascripts/jquerycssmenu.js"></script>
 	    </head>
     <body>
-        <script language="javascript" type="text/javascript">
+        <style type="text/css">
+  body  a.style{
+    color:#AF3002;
+    font-family:sans-serif;
+    font-size:13px;
+    text-decoration:none;
+  }
+</style>
+
+
+	
+<script language="javascript" type="text/javascript">
 function clearText(field)
 {
     if (field.defaultValue == field.value) field.value = '';
@@ -33,10 +46,10 @@ function clearText(field)
             	
             </div>
          
-            
-            <div id="templatemo_menu_section" style='margin:6px 0;'>
+
+            <div id="templatemo_menu_section" style='margin:6px 0;'  class="jquerycssmenu">
         
-			<ul id='jsddm' style='width:740px;'>
+			<ul>
 			
 			  <li><a  href="/public/list/home.html">&#39318;&#39029;</a>
 					
@@ -44,18 +57,18 @@ function clearText(field)
 			
 			  <li><a  href="/public/page/16.html">&#20844;&#21496;&#20171;&#32461;</a>
 					
-					<ul>
-					
-						<li><a href="/public/page/16.html">&#20844;&#21496;&#20171;&#32461;</a></li>
-					
-						<li><a href="/public/page/17.html">&#20844;&#21496;&#36164;&#36136;</a></li>
-					
-						<li><a href="/public/page/19.html">&#32452;&#32455;&#26550;&#26500;</a></li>
-					
-						<li><a href="/public/page/20.html">&#20225;&#19994;&#25991;&#21270;</a></li>
-					
-					</ul>
-					
+						<ul>
+						
+							<li><a href="/public/page/16.html">&#20844;&#21496;&#20171;&#32461;</a></li>
+						
+							<li><a href="/public/page/17.html">&#20844;&#21496;&#36164;&#36136;</a></li>
+						
+							<li><a href="/public/page/19.html">&#32452;&#32455;&#26550;&#26500;</a></li>
+						
+							<li><a href="/public/page/20.html">&#20225;&#19994;&#25991;&#21270;</a></li>
+						
+						</ul>
+						
 			  </li>
 			
 			  <li><a  href="/public/list/product.html">&#20135;&#21697;&#20013;&#24515;</a>
@@ -68,9 +81,21 @@ function clearText(field)
 			
 			  <li><a  href="/public/page/21.html">&#24037;&#31243;&#19994;&#32489;</a>
 					
+						<ul>
+						
+							<li><a href="/public/page/2.html">&#20856;&#22411;&#33539;&#20363;</a></li>
+						
+							<li><a href="/public/page/48.html">&#20844;&#21496;&#19994;&#32489;</a></li>
+						
+						</ul>
+						
 			  </li>
 			
 			  <li><a  href="/public/page/22.html">&#38144;&#21806;&#32593;&#32476;</a>
+					
+			  </li>
+			
+			  <li><a  href="/public/list/staff.html">&#20154;&#25165;&#20013;&#24515;</a>
 					
 			  </li>
 			
@@ -80,7 +105,7 @@ function clearText(field)
 			
 		  </ul>
 		 
-		<p style='line-height:26px;'>
+			<p style='line-height:26px;'>
 		        <script>
 				
 var today=new Date()
@@ -92,17 +117,25 @@ weekday[3]="星期三"
 weekday[4]="星期四"
 weekday[5]="星期五"
 weekday[6]="星期六"
-var y=today.getYear();
+var y=today.getFullYear();
 var m=today.getMonth();
 var d=today.getDate();
 var day = today.getDay()
-document.write("今天是：" + (1900+y) +"年" + m+"月" + d +"日 " + weekday[day])
+document.write("今天是：" + (y) +"年" + m+"月" + d +"日 " + weekday[day])
+
 
 </script>
 </p>
+		<br style="clear: left" />
 			</div>
+
+
         </div>
     </div><!-- End Of Top Background -->
+    
+<script>
+jquerycssmenu.buildmenu("templatemo_menu_section", arrowimages)
+</script>    
 
 		<div style='text-align:center' > <img alt="" src="/public/obsess/image/img_73-w.jpg" /> </div>
     <div id="templatemo_background_section_mid">
@@ -119,43 +152,99 @@ document.write("今天是：" + (1900+y) +"年" + m+"月" + d +"日 " + weekday[
               
               	
               	<li style='line-height:22px;' >
-              		<a href="/public/page/4.html"><img src='/public/upload/JbYDwKvbgc.gif' style="max-width:140px;max-height:30px;"/></a><br/>
-	              	<a href="/public/page/4.html">&#24503;&#22269;SAMSON</a></li>
+              		<a href="/public/page/5.html">
+              		<img src='/public/upload/ari.jpg' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/5.html">&#33406;&#29790;</a></li>
               	
               	
               
               	
               	<li style='line-height:22px;' >
-              		<a href="/public/page/8.html"><img src='/public/upload/tyco.jpg' style="max-width:140px;max-height:30px;"/></a><br/>
-	              	<a href="/public/page/8.html">&#27888;&#31185;&#38400;&#38376; Tyco</a></li>
-              	
-              	
-              
-              	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/15.html"><img src='/public/upload/logo.gif' style="max-width:140px;max-height:30px;"/></a><br/>
+              		<a href="/public/page/15.html">
+              		<img src='/public/upload/logo.gif' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
 	              	<a href="/public/page/15.html">KOSO</a></li>
               	
               	
               
               	
               	<li style='line-height:22px;' >
-              		<a href="/public/page/10.html"><img src='/public/upload/oventrop.gif' style="max-width:140px;max-height:30px;"/></a><br/>
-	              	<a href="/public/page/10.html">&#27431;&#25991;&#25299;&#26222; Oventrop</a></li>
+              		<a href="/public/page/42.html">
+              		<img src='/public/upload/leser.jpg' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/42.html">&#24503;&#22269;&#38647;&#26085;&#23572;</a></li>
               	
               	
               
               	
               	<li style='line-height:22px;' >
-              		<a href="/public/page/11.html"><img src='/public/upload/spira.gif' style="max-width:140px;max-height:30px;"/></a><br/>
-	              	<a href="/public/page/11.html">&#26031;&#27966;&#33678;&#20811;  Spiraxsarco</a></li>
+              		<a href="/public/page/7.html">
+              		<img src='/public/upload/armstrong.gif' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/7.html">&#38463;&#22982;&#26031;&#22766;</a></li>
               	
               	
               
               	
+              	<li style='line-height:22px;' >
+              		<a href="/public/page/10.html">
+              		<img src='/public/upload/oventrop.gif' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/10.html">&#27431;&#25991;&#25176;&#26222;</a></li>
               	
-              		<li><a href="/public/page/7.html">&#38463;&#22982;&#26031;&#22766; Armstrong</a></li>
-	            
+              	
+              
+              	
+              	<li style='line-height:22px;' >
+              		<a href="/public/page/43.html">
+              		<img src='/public/upload/watsonmcdaniel.jpg' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/43.html">&#39532;&#20811;&#20025;&#23612;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;' >
+              		<a href="/public/page/4.html">
+              		<img src='/public/upload/JbYDwKvbgc.gif' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/4.html">&#24503;&#22269;&#33832;&#22982;&#26862;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;' >
+              		<a href="/public/page/11.html">
+              		<img src='/public/upload/spira.gif' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/11.html">&#26031;&#27966;&#33678;&#20811;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;' >
+              		<a href="/public/page/8.html">
+              		<img src='/public/upload/tyco.jpg' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/8.html">&#27888;&#31185;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;' >
+              		<a href="/public/page/44.html">
+              		<img src='/public/upload/ttv.png' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/44.html">&#26367;&#26367;&#23041;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;' >
+              		<a href="/public/page/45.html">
+              		<img src='/public/upload/tlv.jpg' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/45.html">TLV</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;' >
+              		<a href="/public/page/47.html">
+              		<img src='/public/upload/fisher.gif' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+	              	<a href="/public/page/47.html">&#36153;&#24076;&#23572;</a></li>
+              	
+              	
               
 
 					</ul>
@@ -167,12 +256,12 @@ document.write("今天是：" + (1900+y) +"年" + m+"月" + d +"日 " + weekday[
 	<tbody>
 		<tr>
 			<td style="width: 50px; text-align: left;">
-				<strong><span style="color: rgb(51, 51, 51);"><span class="style9">电话</span></span></strong></td><td style="vertical-align: top;"><strong><span style="color: rgb(51, 51, 51);">0571-85861288&nbsp;&nbsp; <br>85819158&nbsp;&nbsp; <br>87525328</span></strong></td>
+				<strong><span style="color: rgb(51, 51, 51);"><span class="style9">电话</span></span></strong></td><td style="vertical-align: top;"><strong><span style="color: rgb(51, 51, 51);">0571-85861288 &nbsp; <br>85869158</span></strong></td>
 			
 		</tr>
 		<tr>
 			<td style="text-align: left;">
-				<strong><span style="color: rgb(51, 51, 51);"><span class="style9">传真</span></span></strong></td><td style="vertical-align: top;"><strong><span style="color: rgb(51, 51, 51);">0571-85819168</span></strong></td>
+				<strong><span style="color: rgb(51, 51, 51);"><span class="style9">传真</span></span></strong></td><td style="vertical-align: top;"><strong><span style="color: rgb(51, 51, 51);">0571-88980530</span></strong></td>
 			
 		</tr>
 		<tr>
@@ -191,21 +280,9 @@ document.write("今天是：" + (1900+y) +"年" + m+"月" + d +"日 " + weekday[
     
 	<div id="templatemo_left_section" style="margin:0 0 0 15px">
 	 <div class="templatemo_left_section_box">
-    	<div class="templatemo_left_section_box_top" style="width:720px;">&#24503;&#22269;SAMSON</div>
+    	<div class="templatemo_left_section_box_top" style="width:720px;">&#24503;&#22269;&#33832;&#22982;&#26862;</div>
         <div class="templatemo_left_section_box_body"  style="width:720px;">
-			<p>
-	<font face="黑体, 宋体, 微软雅黑, 新宋体, 新宋体-18030" size="2">萨姆森控制设备（中国）有限公司成立于1998</font><img alt="" src="http://www.samsonchina.com/pictures/pic00037.jpg" style="border-style: solid; border-width: 0px; width: 100px; height: 170px; float: right;" /><font face="黑体, 宋体, 微软雅黑, 新宋体, 新宋体-18030" size="2">年5月，她是世界控制阀领导者之一 SAMSON AG在中国注册投资的全资子公司。公司总部设在中国北京经济技术开发区（BDA)，距北京市中心天安门广场16.5公里，距北京首都国际机场25公里，距天津新港140公里。<br />
-	　　SAMSON AG 创立于1907年，其总部位于德国法兰克福。在超过100年的成长和发展的过程中，SAMSON公司始终致力于控制阀和仪器仪表领域的研发、生产和销售。其独特的产品研发和创新能力、稳定可靠的产品质量以及完善的售后服务为客户创造了巨大的价值，并为 SAMSON 赢得了良好的声誉。目前SAMSON公司的产品和网络已经覆盖全球，为全球用户提供优质的产品和完善的解决方案。</font></p>
-<p>
-	<font face="黑体, 宋体, 微软雅黑, 新宋体, 新宋体-18030" size="2">　　SAMSON AG 在中国的业务于上个世纪已开始发展，1987年前，SAMSON 的产品通过国际工程公司进入中国；1988年，&ldquo;南行&rdquo;成为SAMSON AG 在中国的独家代理商。随着中国经济发展和 SAMSON公司的战略要求以及在为中国用户提供更好服务和支持的理念下，SAMSON 决定成立中国公司。在这种背景下，1998年，萨姆森控制设备（中国）有限公司成立，一期注册资本为446万欧元。<br />
-	　　经过十年的发展和壮大，萨姆森中国公司已经今非昔比。<br />
-	　　萨姆森中国公司现有员工共138名，下设销售部、生产部、行政部。在上海、成都、广州、沈阳先后设立了分公司，并且在上海、南京成立了维修中心。构筑起服务全国的营销网络。<br />
-	　　2003年10月，萨姆森控制设备（中国）有限公司在目前新址建立办公楼及厂方，占地面积10138平方米，一期工程建筑面积5800平方米，并拥有自己独立的生产设备，生产车间及仓库。<br />
-	　　萨姆森中国公司成立十年来，销售业绩持续增长，2007年的销售收入达到1998年销售收入的30倍，2008年前两个月销售收入已达2007全年的35％。伴随业务的高速发展，萨姆森中国公司在工业控制领域始终处于领先地位，为国内的石化、热力、空分、冶金、电力、化工、食品、烟草等行业提供了功能完善的工业控制阀产品和优质的工程服务。<br />
-	　　作为一个忠实可靠，备受尊重的工业企业，萨姆森中国公司与包括中石化、北京热力、杭氧空分、拜耳、巴斯夫、普莱克斯等众多大型知名企业建立了良好的合作关系。近年来，在项目与市场方面，也取得了娇人的成绩。例如：在南京扬子石化-巴斯夫一体化项目中提供了1700多台阀门，在上海漕泾的巴斯夫IIP项目和拜耳项目中分别提供了1300台和1800多台阀门；在南海壳牌石化项目中，提供了600多台控制阀，最大口径甚至达到了1.5米。在过去的两年中，SAMSON中国在煤化工及炼油石化项目中取得的突破，同时，也非常重视轻工、冶金等市场的开发。<br />
-	　　2008年，萨姆森中国公司成立十周年，二期工程5000平方米的车间、仓库及办公用地建设即将开工，武汉的分公司也在筹备之中。这将是令人振奋的一年，依靠萨姆森中国公司全体成员的努力，为客户提供可靠的产品和最优的技术服务，成为更多客户最为信赖的供应商。<br />
-	　　萨姆森中国公司的明天定会更加美好！萨姆森人将不断努力！</font></p>
-
+			&nbsp;&nbsp; 德国萨姆森公司成立于1907年，从自力式工业调节阀起家，目前是世界最大的工业控制阀制造商之一，其专业技术水平处于世界领先地位，营业额位于欧洲同行业第一。公司总部设在德国的法兰克福，在全世界40多个国家设有近80个分支机构，生产厂家分布欧洲、亚洲和北美洲。 <br>萨姆森公司的产品涵盖了调节阀、执行器和定位器等几十种产品系列，模块化的设计，使阀门能在各种工况条件下满足最苛刻的要求。今天，萨姆森产品广泛地应用于石化、供热、冶金、轻工等行业，巴斯夫、拜尔、壳牌、可口可乐、雀巢、北京热力公司、首钢、红塔山、西安杨森等都是萨姆森产品的长期用户。<br><br><a href="http://jobe23.com/index/146/c146529.shtml">http://jobe23.com/index/146/c146529.shtml</a><br>
 		</div>
 	</div>
 </div>
@@ -217,7 +294,7 @@ document.write("今天是：" + (1900+y) +"年" + m+"月" + d +"日 " + weekday[
 		
         	<a href="/public/page/16.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/public/page/23.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
   <a href="#">政策法规</a>&nbsp;&nbsp;|&nbsp;&nbsp;<br/>
-    <font color="#333333"><p style="margin: 2px; padding: 0px; text-align: center;">杭州百特（控股）有限公司<span class="style9"> 版权所有<br>电话: </span>0571-85861288&nbsp;&nbsp; 85819158&nbsp;&nbsp; 87525328&nbsp;&nbsp; <span class="style9">传真:</span>0571—85819168<br><span class="style9"> 地址:</span>杭州市石桥路272号北16号三楼</p>
+    <font color="#333333"><p style="text-align: center; padding-bottom: 0px; margin: 2px; padding-left: 0px; padding-right: 0px; padding-top: 0px">杭州百特（控股）有限公司<span class="style9"> 版权所有<br>电话: </span>0571-<strong><span>85861288</span></strong>&nbsp;&nbsp; <strong><span>85869158</span></strong>&nbsp;&nbsp; <span class="style9">传真:</span>0571—<strong><span>88980530</span></strong><br><span class="style9">地址:</span>杭州市石桥路272号北16号三楼</p>
 
 	<!-- GoStats JavaScript Based Code -->
 <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>

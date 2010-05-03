@@ -1,0 +1,77 @@
+#{extends 'templates/orange/orange.html' /}
+
+
+<div id="templatemo_left_section" style="margin:0 0 0 15px">
+	 <div class="templatemo_left_section_box">
+    	<div class="templatemo_left_section_box_top" style="width:720px;">在线留言</div>
+        <div class="templatemo_left_section_box_body"  style="width:720px;">
+			<form>
+			<table>
+				<tr>
+					<td colspan="2">
+						<h2>您的联系方式</h2>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:120px;">
+			<label>姓名：</label>
+					</td>
+					<td>
+			<input type='text' name="guestName" id="guestName">
+					</td>
+				</tr>
+				<tr>
+					<td>
+			<label>联系电话或手机：</label></td><td><input type='text' name='guestPhone' id='guestPhone'>			
+					</td>
+				</tr>
+				<tr>
+					<td>
+			<label>邮件地址：</label></td><td><input type='text' name='guestEmail' id='guestEmail'> 
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<h2>您的留言</h2>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<textarea style="width:400px;height:200px;" name="content" id="content"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<input id="send" type="button" value="发送留言" name="send">
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+ $(document).ready(function(){
+  	$("#send").click(function(){
+		if( !($("#guestName").val()) ) {
+			alert("请输入您的姓名!");
+			return ;
+		}
+		if( ! ($("#guestPhone").val() || $("#guestEmail").val()) ){
+			alert("请输入您的联系方式，电话，或者邮件!");
+			return ;
+		}
+		if(!$("#content").val()){
+			alert("请输入您的留言");
+			return;
+		}
+		var text = $("#guestName").val() + "\u000D\u000A" + $("#guestName").val() + "\u000D\u000A"  + $("#guestPhone").val() + "\u000D\u000A"  + $("#guestEmail").val() + "\u000D\u000A" +"在网站上留言" + "\u000D\u000A"  + $("#content").val()
+		
+	
+	    jQuery.getJSON("http://www.jsxnc.com/Messenger/send", {id:13,text:text},function(){
+	    	alert("留言已经发送！");			
+		});
+    });
+});
+
+</script>
