@@ -44,7 +44,7 @@ public class Article extends Model {
 	@PreUpdate
 	public void onUpdate() {
 		System.out.println("onUpdate");
-		if (dateCreated == null)
+//		if (dateCreated == null)
 			dateCreated = new Date();
 		System.out.println(title);
 		dateUpdated = new Date();

@@ -1,8 +1,10 @@
 #{extends 'templates/orange/orange.html' /}
 
 #{set 'mainContent' }
-
-			<div id="templatemo_left_section" style="margin:0 0 0 15px">
+<table>
+<tr>
+<td valign=top>
+			<div id="templatemo_left_section" style="margin:0 0 0 15px;">
             
            	  <div class="templatemo_left_section_box">
 					#{article code:'welcome' }
@@ -45,7 +47,8 @@
             </div><!-- End Of left Section -->
             
   
-           
+</td>           
+<td valign=top>
             
              <div id="templatemo_right_section" style='margin-right:0px;'>
             
@@ -76,6 +79,7 @@
             </div>
                 
             </div><!-- End Of right Section -->
-            
-
+</td>
+</tr>            
+</table>
 #{/set}

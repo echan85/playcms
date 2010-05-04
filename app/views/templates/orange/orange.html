@@ -43,10 +43,17 @@ function clearText(field)
     	<div class="templatemo_container">
         <div id="templatemo_content_area" style='margin-top: 5px;'>
 		            
-		
+		<table>
+		<tr>
+		<td valign=top>
 		#{include 'templates/orange/_left.html'/}
+		</td>
+		<td valign=top>
+    		#{get 'mainContent' /}
+		</td>
+		</tr>
+		</table>
 
-    #{get 'mainContent' /}
 	#{doLayout /}
 	
 			<div class="cleaner_with_height">&nbsp;</div>

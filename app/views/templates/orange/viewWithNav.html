@@ -1,0 +1,23 @@
+#{extends 'templates/orange/orange.html' /}
+
+#{set 'nav'}
+            	<div class="templatemo_middle_section_box">
+                	<h1>${article.menu.parent ? article.menu.parent.title : article.menu.title}</h1>
+					<ul>
+              	#{list items:article.menu.parent ? article.menu.parent.children : article.menu.children,as:'m'}
+           			<li><a href="#{url menu:m/}">${m.title}</a></li>
+           		#{/list}
+					</ul>
+                </div>
+#{/set}
+
+#{set 'mainContent' }
+<div id="templatemo_left_section" style="margin:0 0 0 15px">
+	 <div class="templatemo_left_section_box">
+    	<div class="templatemo_left_section_box_top" style="width:720px;">${article.title}</div>
+        <div class="templatemo_left_section_box_body"  style="width:720px;">
+			${article.content.raw()}
+		</div>
+	</div>
+</div>
+#{/set}

@@ -1,7 +1,7 @@
 #{extends 'templates/orange/orange.html' /}
 
 	#{set 'title'} ${article.title}#{/set}
-    
+#{set 'mainContent' }    
 <div id="templatemo_left_section" style="margin:0 0 0 15px">
 	 <div class="templatemo_left_section_box">
     	<div class="templatemo_left_section_box_top" style="width:720px;">${article.title}</div>
@@ -10,3 +10,4 @@
 		</div>
 	</div>
 </div>    
+#{/set}

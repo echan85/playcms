@@ -1,6 +1,10 @@
 
+
             <div id="templatemo_middle_section" style='margin:0px;'>
-            
+#{if nav}
+	#{get 'nav'/}
+#{/if}
+#{ifnot nav}            
             	<div class="templatemo_middle_section_box">
                 	<h1>代理品牌</h1>
 					<ul>
@@ -8,7 +12,7 @@
               	#{if a.titlepic}
               	<li style='line-height:22px;' >
               		<a href="@{Application.viewById(a.id)}">
-              		<img src='${a.titlepic}' style="border:0px;max-width:60px;max-height:24px;width:expression(this.width > 140? '140px': this.width )"/></a>
+              		<img src='${a.titlepic}' style="border:0px;width: 60px;height:24px;"/></a>
 	              	<a href="@{Application.viewById(a.id)}">${a.title}</a></li>
               	#{/if}
               	#{ifnot  a.titlepic}
@@ -17,16 +21,9 @@
               #{/articles}
 					</ul>
                 </div>
-                *{
-                <div class="templatemo_middle_section_box">
-               		<h1>最近新闻</h1>
-                	<ul>
-				#{articles as:'a',menu:'news',count:5}
-				    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a></li>
-				#{/articles}
-				  </ul>
-                </div>
-                }*
+
+#{/ifnot}                
+                
                 <div class="templatemo_middle_section_box">
                 <h1>联系我们</h1>
                 #{includeArticle code:'contacts'/}
