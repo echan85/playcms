@@ -14,6 +14,9 @@ import org.apache.commons.lang.RandomStringUtils;
 import play.mvc.Controller;
 
 public class Connector extends Controller {
+	public static void connect(){
+		render();
+	}
 	public static void cmd(File uploadfile) {
 		System.out.println(params);
 		String cmd = params.get("cmd");

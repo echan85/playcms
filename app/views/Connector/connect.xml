@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Connector command="getFiles" resourceType="Image">
+<CurrentFolder path="/" url="/">
+</CurrentFolder>
+<Folders>
+	<Folder name="test"></Folder>
+</Folders>
+<Files>
+	<File name="text.jpg" size="200">
+	</File>
+</Files>
+
+</Connector>

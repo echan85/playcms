@@ -3,7 +3,7 @@
 <script type="text/javascript" language="javascript"  src="@{'/public/elrte/js/elrte.min.js'}"></script>
 <script type="text/javascript" language="javascript"  src="@{'/public/elrte/js/jquery-ui-1.7.2.custom.min.js'}"></script>
 <script src="@{'/public/elrte/js/i18n/elrte.zh.js'}" type="text/javascript" charset="utf-8"></script>
-<script src="@{'/public/elfinder/js/elfinder.min.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="@{'/public/fckeditor/fckeditor.js'}" type="text/javascript" charset="utf-8"></script>
 
 <link rel="stylesheet" href="@{'/public/elrte/js/ui-themes/base/ui.all.css'}" type="text/css" media="screen" charset="utf-8">
 <link rel="stylesheet" href="@{'/public/elrte/css/elrte.full.css'}" type="text/css" media="screen" title="elRTE" charset="utf-8">
@@ -18,7 +18,7 @@
 	#{form action:@create(), enctype:'multipart/form-data'}
 		#{crud.form}			 
 			 #{crud.custom 'content'}
-			 	<textarea id="editor" cols="80" name="object.content" rows="10"></textarea>
+				<textarea name="object.content" rows="10" cols="80" style="width: 100%; height: 200px"></textarea>
 			 #{/crud.custom}
 		#{/crud.form}
 
@@ -33,24 +33,8 @@
 </div>
 	<script type="text/javascript" charset="utf-8">
 		$().ready(function() {
-			var opts = {
-				cssClass : 'el-rte',
-				lang     : 'zh',
-				height   : 450,
-				toolbar  : 'maxi',
-				fmAllow  : true,
-				cssfiles : ['@{'/public/elrte/css/elrte-inner.css'}'],
-				fmOpen : function(callback) {
-					$('<div id="myelfinder" />').elfinder({
-					   url : '@{Connector.cmd()}',
-					   lang : 'ru',
-					   dialog : { width : 900, modal : true, title : 'Files' }, // open in dialog window
-					   closeOnEditorCallback : true, // close after file select
-					   editorCallback : callback     // pass callback to file manager
-				   })
-				}
-
-			}
-			$('#editor').elrte(opts);
+			var oFCKeditor = new FCKeditor( 'object.content' ) ;
+			oFCKeditor.BasePath	= '/public/fckeditor/' ;
+			oFCKeditor.ReplaceTextarea() ;
 		})
 	</script>

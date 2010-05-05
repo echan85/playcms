@@ -11,9 +11,13 @@ POST     /upload                                       Application.upload
 GET     /public/list/{code}.html               Application.list
 GET     /public/page/{<[0-9]+>id}.html                 Application.viewById
 GET     /public/page/{code}.html              Application.viewByCode
+
+* /public/fckeditor/editor/filemanager/connectors/php/connector.php Connector.connect(format:'xml')
 GET     /public/                                staticDir:public
 
-*    /connector                                Connector.cmd(format:'josn')
+
+
+*   /connector                                Connector.cmd(format:'josn')
 
 *	/a	Admin.index
 *	/tree	Admin.tree(format:'json')
