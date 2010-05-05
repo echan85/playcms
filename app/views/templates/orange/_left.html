@@ -10,7 +10,7 @@
 					<ul>
               #{articles as:'a',menu:'coop',count:100}
               	#{if a.titlepic}
-              	<li style='line-height:22px;' >
+              	<li style='line-height:22px;margin-top:12px;' >
               		<a href="@{Application.viewById(a.id)}">
               		<img src='${a.titlepic}' style="border:0px;width: 60px;height:24px;"/></a>
 	              	<a href="@{Application.viewById(a.id)}">${a.title}</a></li>

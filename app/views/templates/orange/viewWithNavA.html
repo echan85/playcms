@@ -2,11 +2,11 @@
 
 #{set 'nav'}
             	<div class="templatemo_middle_section_box">
-                	<h1>${article.menu.parent} ${article.menu.parent ? article.menu.parent?.title : article.menu?.title}</h1>
+                	<h1>${article.menu.parent ? article.menu.parent?.title : article.menu?.title}</h1>
 					<ul>
-              	#{list items:article.menu.parent ? article.menu.parent.children : article.menu.children,as:'m'}
-           			<li><a href="#{url menu:m/}">${m.title}</a></li>
-           		#{/list}
+					#{articles menu:article.menu.code,as:'a',count:100}
+           			<li><a href="#{url article:a/}">${a.title}</a></li>
+           			#{/articles}
 					</ul>
                 </div>
 #{/set}
