@@ -39,15 +39,327 @@ function clearText(field)
 </style>
 <![endif]-->
 
-		    <div id="templatemo_background_section_top">
+		<script language="JavaScript" type="text/javascript">
+<!--
+//v1.7
+// Flash Player Version Detection
+// Detect Client Browser type
+// Copyright 2005-2008 Adobe Systems Incorporated.  All rights reserved.
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+function ControlVersion()
+{
+	var version;
+	var axo;
+	var e;
+	// NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
+	try {
+		// version will be set for 7.X or greater players
+		axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
+		version = axo.GetVariable("$version");
+	} catch (e) {
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 6.X players only
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
+			
+			// installed player is some revision of 6.0
+			// GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
+			// so we have to be careful. 
+			
+			// default to the first public version
+			version = "WIN 6,0,21,0";
+			// throws if AllowScripAccess does not exist (introduced in 6.0r47)		
+			axo.AllowScriptAccess = "always";
+			// safe to call for 6.0r47 or greater
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 4.X or 5.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 3.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = "WIN 3,0,18,0";
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 2.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+			version = "WIN 2,0,0,11";
+		} catch (e) {
+			version = -1;
+		}
+	}
+	
+	return version;
+}
+// JavaScript helper required to detect Flash Player PlugIn version information
+function GetSwfVer(){
+	// NS/Opera version >= 3 check for Flash plugin in plugin array
+	var flashVer = -1;
+	
+	if (navigator.plugins != null && navigator.plugins.length > 0) {
+		if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+			var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+			var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+			var descArray = flashDescription.split(" ");
+			var tempArrayMajor = descArray[2].split(".");			
+			var versionMajor = tempArrayMajor[0];
+			var versionMinor = tempArrayMajor[1];
+			var versionRevision = descArray[3];
+			if (versionRevision == "") {
+				versionRevision = descArray[4];
+			}
+			if (versionRevision[0] == "d") {
+				versionRevision = versionRevision.substring(1);
+			} else if (versionRevision[0] == "r") {
+				versionRevision = versionRevision.substring(1);
+				if (versionRevision.indexOf("d") > 0) {
+					versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
+				}
+			}
+			var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+		}
+	}
+	// MSN/WebTV 2.6 supports Flash 4
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+	// WebTV 2.5 supports Flash 3
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+	// older WebTV supports Flash 2
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+	else if ( isIE && isWin && !isOpera ) {
+		flashVer = ControlVersion();
+	}	
+	return flashVer;
+}
+// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
+{
+	versionStr = GetSwfVer();
+	if (versionStr == -1 ) {
+		return false;
+	} else if (versionStr != 0) {
+		if(isIE && isWin && !isOpera) {
+			// Given "WIN 2,0,0,11"
+			tempArray         = versionStr.split(" "); 	// ["WIN", "2,0,0,11"]
+			tempString        = tempArray[1];			// "2,0,0,11"
+			versionArray      = tempString.split(",");	// ['2', '0', '0', '11']
+		} else {
+			versionArray      = versionStr.split(".");
+		}
+		var versionMajor      = versionArray[0];
+		var versionMinor      = versionArray[1];
+		var versionRevision   = versionArray[2];
+        	// is the major.revision >= requested major.revision AND the minor version >= requested minor
+		if (versionMajor > parseFloat(reqMajorVer)) {
+			return true;
+		} else if (versionMajor == parseFloat(reqMajorVer)) {
+			if (versionMinor > parseFloat(reqMinorVer))
+				return true;
+			else if (versionMinor == parseFloat(reqMinorVer)) {
+				if (versionRevision >= parseFloat(reqRevision))
+					return true;
+			}
+		}
+		return false;
+	}
+}
+function AC_AddExtension(src, ext)
+{
+  if (src.indexOf('?') != -1)
+    return src.replace(/\?/, ext+'?'); 
+  else
+    return src + ext;
+}
+function AC_Generateobj(objAttrs, params, embedAttrs) 
+{ 
+  var str = '';
+  if (isIE && isWin && !isOpera)
+  {
+    str += '<object ';
+    for (var i in objAttrs)
+    {
+      str += i + '="' + objAttrs[i] + '" ';
+    }
+    str += '>';
+    for (var i in params)
+    {
+      str += '<param name="' + i + '" value="' + params[i] + '" /> ';
+    }
+    str += '</object>';
+  }
+  else
+  {
+    str += '<embed ';
+    for (var i in embedAttrs)
+    {
+      str += i + '="' + embedAttrs[i] + '" ';
+    }
+    str += '> </embed>';
+  }
+  document.write(str);
+}
+function AC_FL_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+     , "application/x-shockwave-flash"
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_SW_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
+     , null
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
+  var ret = new Object();
+  ret.embedAttrs = new Object();
+  ret.params = new Object();
+  ret.objAttrs = new Object();
+  for (var i=0; i < args.length; i=i+2){
+    var currArg = args[i].toLowerCase();    
+    switch (currArg){	
+      case "classid":
+        break;
+      case "pluginspage":
+        ret.embedAttrs[args[i]] = args[i+1];
+        break;
+      case "src":
+      case "movie":	
+        args[i+1] = AC_AddExtension(args[i+1], ext);
+        ret.embedAttrs["src"] = args[i+1];
+        ret.params[srcParamName] = args[i+1];
+        break;
+      case "onafterupdate":
+      case "onbeforeupdate":
+      case "onblur":
+      case "oncellchange":
+      case "onclick":
+      case "ondblclick":
+      case "ondrag":
+      case "ondragend":
+      case "ondragenter":
+      case "ondragleave":
+      case "ondragover":
+      case "ondrop":
+      case "onfinish":
+      case "onfocus":
+      case "onhelp":
+      case "onmousedown":
+      case "onmouseup":
+      case "onmouseover":
+      case "onmousemove":
+      case "onmouseout":
+      case "onkeypress":
+      case "onkeydown":
+      case "onkeyup":
+      case "onload":
+      case "onlosecapture":
+      case "onpropertychange":
+      case "onreadystatechange":
+      case "onrowsdelete":
+      case "onrowenter":
+      case "onrowexit":
+      case "onrowsinserted":
+      case "onstart":
+      case "onscroll":
+      case "onbeforeeditfocus":
+      case "onactivate":
+      case "onbeforedeactivate":
+      case "ondeactivate":
+      case "type":
+      case "codebase":
+      case "id":
+        ret.objAttrs[args[i]] = args[i+1];
+        break;
+      case "width":
+      case "height":
+      case "align":
+      case "vspace": 
+      case "hspace":
+      case "class":
+      case "title":
+      case "accesskey":
+      case "name":
+      case "tabindex":
+        ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];
+        break;
+      default:
+        ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+    }
+  }
+  ret.objAttrs["classid"] = classid;
+  if (mimeType) ret.embedAttrs["type"] = mimeType;
+  return ret;
+}
+// -->
+</script>
+
+    <div id="templatemo_background_section_top">
     
     	<div class="templatemo_container" >
-        	<div id="templatemo_logo_section" style='background:url(/public/obsess/image/head_bg.jpg) no-repeat;margin:0px 0 0px;width:950px;height:85px;'>
+        	<div id="templatemo_logo_section" style='background:url(/public/obsess/image/head_bg.jpg) no-repeat; padding: 1px 0;margin:0px 0 0px;width:950px;height:85px;'>
+
+<script language="JavaScript" type="text/javascript">
+	AC_FL_RunContent(
+		'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0',
+		'width', '950',
+		'height', '109',
+		'src', 'banner',
+		'quality', 'high',
+		'pluginspage', 'http://www.adobe.com/go/getflashplayer_cn',
+		'align', 'middle',
+		'play', 'true',
+		'loop', 'true',
+		'scale', 'showall',
+		'wmode', 'opaque',
+		'devicefont', 'false',
+		'id', 'banner',
+		'bgcolor', '#ffffff',
+		'name', 'banner',
+		'menu', 'true',
+		'allowFullScreen', 'false',
+		'allowScriptAccess','sameDomain',
+		'movie', '/public/obsess/image/banner',
+		'salign', ''
+		); //end AC code
+</script>
+<noscript>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="950" height="109" id="banner" align="middle">
+	<param name="allowScriptAccess" value="sameDomain" />
+	<param name="allowFullScreen" value="false" />
+	<param name="movie" value="banner.swf" /><param name="quality" value="high" />
+	<param name="bgcolor" value="#ffffff" />	<embed src="/public/obsess/image/banner.swf" quality="high" bgcolor="#ffffff" width="950" 
+	height="109" name="banner" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" />
+	</object>
+</noscript>
+
             	
             </div>
          
 
-            <div id="templatemo_menu_section" style='margin:6px 0;'  class="jquerycssmenu">
+            <div id="templatemo_menu_section" style='margin:6px 0;padding-top:18px;'  class="jquerycssmenu">
         
 			<ul>
 			
@@ -95,7 +407,7 @@ function clearText(field)
 					
 			  </li>
 			
-			  <li><a  href="/public/list/staff.html">&#20154;&#25165;&#20013;&#24515;</a>
+			  <li><a  href="/public/page/50.html">&#20154;&#25165;&#20013;&#24515;</a>
 					
 			  </li>
 			
@@ -135,7 +447,33 @@ document.write("今天是：" + (y) +"年" + m+"月" + d +"日 " + weekday[day])
     
 <script>
 jquerycssmenu.buildmenu("templatemo_menu_section", arrowimages)
+
+$(window).scroll(function()
+{
+  $('#message_box').animate({top:( $(window).scrollTop()+120)+"px" },{queue: false, duration: 350});
+});
+
 </script>    
+
+<style>
+#message_box {
+position: absolute;
+top: 120; left: 0;
+z-index: 10;
+background:#ffc;
+padding:5px;
+border:1px solid #CCCCCC;
+text-align:center;
+font-weight:bold;
+width:100px;
+}
+</style>
+
+<div id="message_box">
+    
+近日网站维护，给您带来不便之处敬请谅解!
+</div>
+
 
 		<div style='text-align:center' > <img alt="" src="/public/obsess/image/img_73-w.jpg" /> </div>
     <div id="templatemo_background_section_mid">
@@ -155,63 +493,7 @@ jquerycssmenu.buildmenu("templatemo_menu_section", arrowimages)
 					<ul>
               
               	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/5.html">
-              		<img src='/public/upload/ari.jpg' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/5.html">&#33406;&#29790;</a></li>
-              	
-              	
-              
-              	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/15.html">
-              		<img src='/public/upload/logo.gif' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/15.html">KOSO</a></li>
-              	
-              	
-              
-              	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/42.html">
-              		<img src='/public/upload/leser.jpg' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/42.html">&#24503;&#22269;&#38647;&#26085;&#23572;</a></li>
-              	
-              	
-              
-              	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/7.html">
-              		<img src='/public/upload/armstrong.gif' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/7.html">&#38463;&#22982;&#26031;&#22766;</a></li>
-              	
-              	
-              
-              	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/10.html">
-              		<img src='/public/upload/oventrop.gif' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/10.html">&#27431;&#25991;&#25176;&#26222;</a></li>
-              	
-              	
-              
-              	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/43.html">
-              		<img src='/public/upload/watsonmcdaniel.jpg' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/43.html">&#39532;&#20811;&#20025;&#23612;</a></li>
-              	
-              	
-              
-              	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/4.html">
-              		<img src='/public/upload/JbYDwKvbgc.gif' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/4.html">&#24503;&#22269;&#33832;&#22982;&#26862;</a></li>
-              	
-              	
-              
-              	
-              	<li style='line-height:22px;' >
+              	<li style='line-height:22px;margin-top:12px;' >
               		<a href="/public/page/11.html">
               		<img src='/public/upload/spira.gif' style="border:0px;width: 60px;height:24px;"/></a>
 	              	<a href="/public/page/11.html">&#26031;&#27966;&#33678;&#20811;</a></li>
@@ -219,23 +501,23 @@ jquerycssmenu.buildmenu("templatemo_menu_section", arrowimages)
               	
               
               	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/8.html">
-              		<img src='/public/upload/tyco.jpg' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/8.html">&#27888;&#31185;</a></li>
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/7.html">
+              		<img src='/public/upload/armstrong.gif' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/7.html">&#38463;&#22982;&#26031;&#22766;</a></li>
               	
               	
               
               	
-              	<li style='line-height:22px;' >
-              		<a href="/public/page/44.html">
-              		<img src='/public/upload/ttv.png' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a href="/public/page/44.html">&#26367;&#26367;&#23041;</a></li>
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/43.html">
+              		<img src='/public/upload/watsonmcdaniel.jpg' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/43.html">&#39532;&#20811;&#20025;&#23612;</a></li>
               	
               	
               
               	
-              	<li style='line-height:22px;' >
+              	<li style='line-height:22px;margin-top:12px;' >
               		<a href="/public/page/45.html">
               		<img src='/public/upload/tlv.jpg' style="border:0px;width: 60px;height:24px;"/></a>
 	              	<a href="/public/page/45.html">TLV</a></li>
@@ -243,10 +525,66 @@ jquerycssmenu.buildmenu("templatemo_menu_section", arrowimages)
               	
               
               	
-              	<li style='line-height:22px;' >
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/8.html">
+              		<img src='/public/upload/tyco.jpg' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/8.html">&#27888;&#31185;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/4.html">
+              		<img src='/public/upload/JbYDwKvbgc.gif' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/4.html">&#24503;&#22269;&#33832;&#22982;&#26862;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;margin-top:12px;' >
               		<a href="/public/page/47.html">
               		<img src='/public/upload/fisher.gif' style="border:0px;width: 60px;height:24px;"/></a>
 	              	<a href="/public/page/47.html">&#36153;&#24076;&#23572;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/15.html">
+              		<img src='/public/upload/logo.gif' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/15.html">KOSO</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/44.html">
+              		<img src='/public/upload/ttv.png' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/44.html">&#26367;&#26367;&#23041;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/42.html">
+              		<img src='/public/upload/leser.jpg' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/42.html">&#24503;&#22269;&#38647;&#26085;&#23572;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/10.html">
+              		<img src='/public/upload/oventrop.gif' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/10.html">&#27431;&#25991;&#25176;&#26222;</a></li>
+              	
+              	
+              
+              	
+              	<li style='line-height:22px;margin-top:12px;' >
+              		<a href="/public/page/5.html">
+              		<img src='/public/upload/ari.jpg' style="border:0px;width: 60px;height:24px;"/></a>
+	              	<a href="/public/page/5.html">&#33406;&#29790;</a></li>
               	
               	
               
@@ -262,7 +600,7 @@ jquerycssmenu.buildmenu("templatemo_menu_section", arrowimages)
 	<tbody>
 		<tr>
 			<td style="width: 50px; text-align: left;">
-				<strong><span style="color: rgb(51, 51, 51);"><span class="style9">电话</span></span></strong></td><td style="vertical-align: top;"><strong><span style="color: rgb(51, 51, 51);">0571-85861288 &nbsp; <br>85869158</span></strong></td>
+				<strong><span style="color: rgb(51, 51, 51);"><span class="style9">电话</span></span></strong></td><td style="vertical-align: top;"><strong><span style="color: rgb(51, 51, 51);">0571-85861288 &nbsp; <br>85819158</span></strong></td>
 			
 		</tr>
 		<tr>
@@ -310,8 +648,8 @@ jquerycssmenu.buildmenu("templatemo_menu_section", arrowimages)
 		<div id="templatemo_footer">
 		
         	<a href="/public/page/16.html">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/public/page/23.html">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="#">政策法规</a>&nbsp;&nbsp;|&nbsp;&nbsp;<br/>
-    <font color="#333333"><p style="text-align: center; padding-bottom: 0px; margin: 2px; padding-left: 0px; padding-right: 0px; padding-top: 0px">杭州百特（控股）有限公司<span class="style9"> 版权所有<br>电话: </span>0571-<strong><span>85861288</span></strong>&nbsp;&nbsp; <strong><span>85869158</span></strong>&nbsp;&nbsp; <span class="style9">传真:</span>0571—<strong><span>88980530</span></strong><br><span class="style9">地址:</span>杭州市石桥路272号北16号三楼</p>
+  <a href="#">政策法规</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">管理登陆</a>&nbsp;&nbsp;<br/>
+    <font color="#333333"><p style="margin: 2px; padding: 0px; text-align: center;">杭州百特（控股）有限公司<span class="style9"> 版权所有<br>电话: </span>0571-<strong><span>85861288</span></strong>&nbsp;&nbsp; <strong><span>85819158</span></strong>&nbsp;&nbsp; <span class="style9">传真:</span>0571—<strong><span>88980530</span></strong><br><span class="style9">地址:</span>杭州市石桥路272号北16号三楼</p>
 
 	<!-- GoStats JavaScript Based Code -->
 <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
