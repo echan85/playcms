@@ -3,11 +3,14 @@
 <CurrentFolder path="/" url="/">
 </CurrentFolder>
 <Folders>
-	<Folder name="test"></Folder>
+	#{list items:folders,as:'folder'}
+	<Folder url="${base.path}" path="${base.path}" name="${folder.name}"></Folder>
+	#{/list}
 </Folders>
 <Files>
-	<File name="text.jpg" size="200">
-	</File>
+	#{list items:files,as:'file'}
+	<File url="/${base.path.replaceAll('\\\\','/')}/${file.name}" name="${file.name}" size="${file.length()}"/>	
+	#{/list}
 </Files>
 
 </Connector>
