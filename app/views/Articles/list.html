@@ -7,7 +7,7 @@
 	<h2 id="crudListTitle">&{'crud.list.title', type.name}</h2>
 
 	#{list items:models.Menu.all().fetch(),as:'m'}
-		<a href="@{list().add('where','menu.id%3d'+m.id)}">${m.title}</a>
+		<a href="@{list().add('menuid',m.id)}">${m.title}</a>
 	#{/list}
 	
 	<div id="crudListSearch">
@@ -23,7 +23,7 @@
 	</div>
 	
 	<p id="crudListAdd">
-		<a href="@{blank()}">&{'crud.add', type.modelName}</a>
+		<a href="@{blank().add('menuid',menu?.id)}">&{'crud.add', type.modelName}</a>
 	</p>
 
 </div>
