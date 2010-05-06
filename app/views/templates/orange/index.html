@@ -23,7 +23,7 @@
                   <div class="templatemo_left_section_box_body" style="padding-top:5px;">
                    	<ul>
 				#{articles as:'a',menu:'news',count:5}
-				    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a></li>
+				    <li><a target="_blank" href="@{Application.viewById(a.id)}">${a.title}</a></li>
 				#{/articles}
 				  </ul>
 					</div>
@@ -54,13 +54,13 @@
 			<div class="templatemo_right_section_box">
                		<h1>集团链接</h1>
                 	<ul>
-				    <li><a href="/">杭州百特科技有限公司</a></li>
-				    <li><a href="#">北京天三通科技有限公司</a></li>
-				    <li><a href="#">福建省贝斯特流体科技有限公司</a></li>
-				    <li><a href="#">深圳百特流体控制工程有限公司</a></li>
-				    <li><a href="#">成都百特节能工程技术有限公司</a></li>
-				    <li><a href="#">石家庄（百特）建材有限公司</a></li>
-				    <li><a href="#">中国•圣博莱阀门有限公司</a></li>
+				    <li><a target="_blank" href="/">杭州百特科技有限公司</a></li>
+				    <li><a target="_blank" href="#">北京天三通科技有限公司</a></li>
+				    <li><a target="_blank" href="#">福建省贝斯特流体科技有限公司</a></li>
+				    <li><a target="_blank" href="#">深圳百特流体控制工程有限公司</a></li>
+				    <li><a target="_blank" href="#">成都百特节能工程技术有限公司</a></li>
+				    <li><a target="_blank" href="#">石家庄（百特）建材有限公司</a></li>
+				    <li><a target="_blank" href="#">中国•圣博莱阀门有限公司</a></li>
 				  </ul>
             </div>
                 
@@ -75,8 +75,8 @@
                     <marquee onMouseOut="this.start()" onMouseOver="this.stop()" height="160px">
       	#{articles menu:'recommend', as:'a',count:20}      		
       			<div style='display:block;float:left;margin:4px;text-align:center; border:1px solid gray; width:130px;  height:150px;'>
-      			<a href="@{Application.viewById(a.id)}"><img style="float:none;margin-bottom:0px;border:0px;max-height:100px;max-width:100px;width:expression(this.width > 100? '100px': this.width );height:expression(this.height > 100? '100px': this.height);" src='${a.titlepic}'/></a><br/>
-      			<a href="@{Application.viewById(a.id)}">${a.title}</a>
+      			<a target="_blank" href="@{Application.viewById(a.id)}"><img style="float:none;margin-bottom:0px;border:0px;max-height:100px;max-width:100px;width:expression(this.width > 100? '100px': this.width );height:expression(this.height > 100? '100px': this.height);" src='${a.titlepic}'/></a><br/>
+      			<a target="_blank" href="@{Application.viewById(a.id)}">${a.title}</a>
       		</div>
       	#{/articles}
                     </marquee>   

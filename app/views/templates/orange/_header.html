@@ -318,15 +318,15 @@ function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
             </div>
          
 
-            <div id="templatemo_menu_section" style='margin:26px 0;padding-top:0px;'  class="jquerycssmenu">
+            <div id="templatemo_menu_section" style='margin:26px 0 !important;margin:3px 0;padding-top:0px;'  class="jquerycssmenu">
         #{menus position:'main'}
 			<ul>
 			#{list items:menus, as:'m'}
-			  <li><a #{if m.code == current?.code} class="current"#{/if} href="#{url menu:m/}">${m.title}</a>
+			  <li><a target="_blank" #{if m.code == current?.code} class="current"#{/if} href="#{url menu:m/}">${m.title}</a>
 					#{if m.children.size() > 0}
 						<ul>
 						#{list items:m.children, as:'c'}
-							<li><a href="#{url menu:c/}">${c.title}</a></li>
+							<li><a target="_blank" href="#{url menu:c/}">${c.title}</a></li>
 						#{/list}
 						</ul>
 						#{/if}
