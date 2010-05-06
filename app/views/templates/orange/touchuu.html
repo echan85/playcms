@@ -50,6 +50,7 @@
 		</div>
 	</div>
 </div>
+<div style="display:none;" id="hddiv"></div>
 <script>
  $(document).ready(function(){
   	$("#send").click(function(){
@@ -67,10 +68,10 @@
 		}
 		var text = $("#guestName").val() + "\u000D\u000A" + $("#guestName").val() + "\u000D\u000A"  + $("#guestPhone").val() + "\u000D\u000A"  + $("#guestEmail").val() + "\u000D\u000A" +"在网站上留言" + "\u000D\u000A"  + $("#content").val()
 		
-	
-	    jQuery.getJSON("http://www.jsxnc.com/Messenger/send", {id:13,text:text},function(){
-	    	alert("留言已经发送！");			
-		});
+		var script = "<iframe onload='alert(\"留言已经发送！\");' src=" + "http://www.jsxnc.com/Messenger/send?id=13&text=" + encodeURIComponent(text) + "></iframe>";
+		try{
+			$("#hddiv").html(script);
+		}catch(e){}
     });
 });
 

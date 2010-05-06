@@ -1,9 +1,15 @@
 #{extends 'CRUD/layout.html' /}
 
+
+
 <div id="crudList" class="${type.name}">
 	
 	<h2 id="crudListTitle">&{'crud.list.title', type.name}</h2>
 
+	#{list items:models.Menu.all().fetch(),as:'m'}
+		<a href="@{list().add('where','menu.id%3d'+m.id)}">${m.title}</a>
+	#{/list}
+	
 	<div id="crudListSearch">
 		#{crud.search /}
 	</div>
