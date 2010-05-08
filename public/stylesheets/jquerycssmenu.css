@@ -56,7 +56,7 @@ top: 0;
 
 /* Sub level menu links style */
 .jquerycssmenu ul li ul li a{
-font: normal 13px Verdana;
+font: normal 12px Verdana;
 width: 160px; /*width of sub menus*/
 background: white;
 color: black;
@@ -64,6 +64,7 @@ padding: 4px 5px;
 margin: 0;
 border-top-width: 0;
 border-bottom: 1px solid #cc6601;
+line-height: 26px;
 }
 
 .jquerycssmenu ul li ul li a:hover{ /*sub menus hover style*/

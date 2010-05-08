@@ -155,10 +155,10 @@ a:hover { color: #666; }
  #templatemo_menu_section{
 	width: 950px;
 	height: 38px;
-	float: left;	
-	margin: 21px 0 0 0;
-	padding: 0;
-
+	float: left;		
+	margin:26px 0px 0px 0px!important;
+	margin:3px 0;
+	padding-top:0px;
 }
 
 #templatemo_menu_section ul {

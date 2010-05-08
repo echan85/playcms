@@ -1,0 +1,25 @@
+#templatemo_menu_section{
+	margin:26px 0px 0px 0px !important;
+	margin:3px 0;
+	padding-top:0px;
+}
+#templatemo_background_section_top {
+	height: 145px;
+	background: url(images/templatemo_background_section_top_bg_tiny.jpg) repeat-x 0px -10px;
+}
+#templatemo_menu_section li a:hover, #templatemo_menu_section li .current{
+	height: 18px;
+}
+#templatemo_menu_section ul li {
+	margin-right:2px;
+}
+#templatemo_menu_section ul li a{
+	padding-top: 2px;
+	font-weight: normal;
+}
+#templatemo_menu_section p{
+	margin:0px 0px 2px;
+}
+.jquerycssmenu ul li ul li a{
+	line-height: 18px;
+}
