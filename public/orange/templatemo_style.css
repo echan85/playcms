@@ -5,29 +5,19 @@ CSS Credit: http://www.templatemo.com/
 */
 
 html {
-
 	background: #fff;
-
 }
 
 body {
-
 	margin: 0;
-
 	padding:0;
-
 	font-family: Arial, Helvetica, sans-serif;
-
 	font-size: 12px;
-
 	line-height: 1.5em;
-
 	color: #333333;
-
 	width: 100%;
-
 	display: table;
-
+	background: #FBF5EF;
 }
 
 a { color: #333;}
@@ -51,7 +41,7 @@ a:hover { color: #666; }
 #templatemo_background_section_mid {
 
 	width: 100%;
-	background: #fff;
+	/*background: #fff;*/
 
 
 }
@@ -163,7 +153,7 @@ a:hover { color: #666; }
 
 #templatemo_menu_section ul {
 	float: left;
-	width: 720px;
+	width: 600px;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -175,7 +165,7 @@ a:hover { color: #666; }
 
 #templatemo_menu_section ul li a{
 	float: left;
-	width: 80px;
+	width: 70px;
 	padding-top: 8px;
 	font-size: 14px;
 	font-weight: bold;
@@ -437,7 +427,7 @@ span.post a:hover{
 
 #templatemo_footer {
 
-	height: 29px;
+	/*height: 29px;*/
 	background: url(images/templatemo_footer_bg.jpg) repeat-x;
 	color: #666;
 	padding: 20px 0 0 0;
