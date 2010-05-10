@@ -5,7 +5,7 @@
                 	<h1>${article.menu.parent ? article.menu.parent?.title : article.menu?.title}</h1>
 					<ul>
 					#{articles menu:article.menu.code,as:'a',count:100}
-           			<li><a target="_blank" href="#{url article:a/}">${a.title}</a></li>
+           			<li><a href="#{url article:a/}">${a.title}</a></li>
            			#{/articles}
 					</ul>
                 </div>

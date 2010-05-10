@@ -8,7 +8,7 @@
            	  
   <ul>
 #{articles as:'a',menu:current.code,count:30}
-    <li><a target="_blank" href="@{Application.viewById(a.id)}">&{a.title}</a> &nbsp;&nbsp;${a.dateCreated?.format('yyyy-MM-dd')}</li>
+    <li><a href="@{Application.viewById(a.id)}">&{a.title}</a> &nbsp;&nbsp;${a.dateCreated?.format('yyyy-MM-dd')}</li>
 #{/articles}
   </ul>
 

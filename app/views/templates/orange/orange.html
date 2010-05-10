@@ -6,10 +6,12 @@
 		<link href="/public/${template}/templatemo_style.css" rel="stylesheet" type="text/css" />
 		<link href="/public/stylesheets/jquerycssmenu.css" rel="stylesheet" type="text/css" />
 		<link href="/public/${template}/tiny-version.css" rel="stylesheet" type="text/css" />
+		<link href="/public/stylesheets/jscroller2-1.1.css" rel="stylesheet" type="text/css" />
 	#{/set}
 	#{set 'moreScripts'}
 		<script type="text/javascript" src="/public/${template}/slimbox/slimbox2.js"></script>
 		<script type="text/javascript" src="/public/javascripts/jquerycssmenu.js"></script>
+		<script type="text/javascript" src="/public/javascripts/jscroller2-1.61-src.js"></script>
 	#{/set}
 
 <style type="text/css">
@@ -62,15 +64,15 @@ function clearText(field)
         
 		<div id="templatemo_footer">
 		
-        	<a target="_blank" href="#{aurl code:'componyintro'/}">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="#{aurl code:'touchuu'/}">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a target="_blank" href="#">政策法规</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a target="_blank" href="#">管理登陆</a>&nbsp;&nbsp;<br/>
+        	<a href="javascript:void(0);" onclick="AddFavorite('http://www.better-valves.com','杭州百特控股');return false;">加入收藏夹</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#{aurl code:'componyintro'/}">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#{aurl code:'touchuu'/}">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#">政策法规</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">管理登陆</a>&nbsp;&nbsp;<br/>
     <font color="#333333">#{includeArticle code:'copyright'} ${article?.content?.raw()} 	#{/includeArticle}
 	<!-- GoStats JavaScript Based Code -->
 <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
 <script type="text/javascript">_gos='c5.gostats.cn';_goa=1029084;
 _got=4;_goi=1;_goz=0;_god='hits';_gol='';_GoStatsRun();</script>
-<noscript><a target="_blank" target="_blank" title="" 
-href="http://gostats.cn"><img alt="" src="http://c5.gostats.cn/bin/count/a_1029084/t_4/i_1/z_0/show_hits/counter.png" 
+<noscript><a title="" 
+href="#"><img alt="" src="http://c5.gostats.cn/bin/count/a_1029084/t_4/i_1/z_0/show_hits/counter.png" 
 style="border-width:0" /></a></noscript>
 <!-- End GoStats JavaScript Based Code -->
 	

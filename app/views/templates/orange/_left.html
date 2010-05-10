@@ -11,12 +11,12 @@
               #{articles as:'a',menu:'coop',count:100}
               	#{if a.titlepic}
               	<li style='line-height:22px;margin-top:12px;' >
-              		<a target="_blank" href="@{Application.viewById(a.id)}">
+              		<a href="@{Application.viewById(a.id)}">
               		<img src='${a.titlepic}' style="border:0px;width: 60px;height:24px;"/></a>
-	              	<a target="_blank" href="@{Application.viewById(a.id)}">${a.title}</a></li>
+	              	<a href="@{Application.viewById(a.id)}">${a.title}</a></li>
               	#{/if}
               	#{ifnot  a.titlepic}
-              		<li><a target="_blank" href="@{Application.viewById(a.id)}">${a.title}</a></li>
+              		<li><a href="@{Application.viewById(a.id)}">${a.title}</a></li>
 	            #{/ifnot}
               #{/articles}
 					</ul>
