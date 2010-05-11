@@ -37,7 +37,23 @@
             	<div class="templatemo_right_section_box">
                 	<h1>百特报道</h1>
 
-<embed src="http://player.youku.com/player.php/sid/XMTcwOTM4MTQw/v.swf" quality="high" width="300" height="280" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash"></embed>
+	<object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="300" height="280">
+		<param name="movie" value="/public/mediaplayer/player.swf" />
+		<param name="allowfullscreen" value="true" />
+		<param name="allowscriptaccess" value="always" />
+		<param name="flashvars" value="file=/public/mediaplayer/flvplayer.flv&image=preview.jpg&autostart=true&repeat=always&logo.hide=true" />
+		<embed
+			type="application/x-shockwave-flash"
+			id="player2"
+			name="player2"
+			src="/public/mediaplayer/player.swf" 
+			width="300" 
+			height="280"
+			allowscriptaccess="always" 
+			allowfullscreen="true"
+			flashvars="file=/public/mediaplayer/intro.flv&image=preview.jpg&autostart=true&repeat=always&logo.hide=true" 
+		/>
+	</object>					
                 	
                 </div>
                 
@@ -56,11 +72,15 @@
             </div><!-- End Of right Section -->
 </td>
 </tr>            
+</table>
+#{/set}
 
+#{set 'scroller'}
+<table style="width:100%">
 <tr> <td colspan="2" valign="top">               
-				 <div class="templatemo_left_section_box" style="margin-top: 15px;">
-					<div class="templatemo_left_section_box_top" style="width:720px;">产品</div>
-                    <div class="templatemo_left_section_box_body" style="width:720px;height:160px;">
+				 <div class="templatemo_left_section_box" style="margin-top: 5px;width:950px">
+					<div class="templatemo_left_section_box_top" style="width:100%;">产品</div>
+                    <div class="templatemo_left_section_box_body" style="width:100%;height:160px;padding-top:2px;">
                     
                     <div id="scroller_container">
  						<div class="jscroller2_left jscroller2_mousemove jscroller2_speed-40" style="font-size:12px; margin: 0;">
@@ -79,7 +99,7 @@
      				<style>
 /* Scroller Box */
 #scroller_container {
- width: 720px;
+ width: 930px;
  height: 160px;
  overflow: hidden;
 }
