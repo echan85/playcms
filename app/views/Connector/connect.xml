@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Connector command="getFiles" resourceType="Image">
-<CurrentFolder path="/" url="/">
+<CurrentFolder path="${CurrentFolder}" url="/">
 </CurrentFolder>
 <Folders>
 	#{list items:folders,as:'folder'}

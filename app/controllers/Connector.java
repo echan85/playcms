@@ -32,7 +32,7 @@ public class Connector extends Controller {
 					return f.isDirectory();
 				}
 			});		
-			render(files,folders,base);
+			render(files,folders,base,CurrentFolder);
 		} else if("CreateFolder".equals(Command)){
 			File base = new File("public/upload"+CurrentFolder);
 			File newFolder = new File(base,NewFolderName);
